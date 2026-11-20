@@ -10,12 +10,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Supabase Client CDN -->
+  <!-- Supabase Client CDN (Armazenamento Global de Fotos & Catálogo) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    // Configuração de tokens visuais Quiet Luxury para a Melua Cosméticos
     tailwind.config = {
       theme: {
         extend: {
@@ -96,14 +97,15 @@
 </head>
 <body class="min-h-screen flex flex-col overflow-x-hidden bg-melua-bg text-melua-ink selection:bg-melua-gold/30">
 
-  <!-- ===================================================================== -->
-  <!-- BARRA ADMINISTRATIVA SUPERIOR (VISÍVEL APENAS QUANDO LOGADA)          -->
-  <!-- ===================================================================== -->
+  <!-- Barra Administrativa Superior (Visível apenas quando a lojista está logada) -->
   <div id="loggedAdminTopBar" class="hidden sticky top-0 z-50 bg-melua-plumDeep text-white border-b border-melua-gold/50 shadow-lg">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 py-2 flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
       <div class="flex items-center gap-2 shrink-0">
         <span class="px-2.5 py-1 rounded-full bg-melua-gold/25 border border-melua-gold text-melua-goldLight text-[11px] font-bold">
           👑 Painel Ativo
+        </span>
+        <span id="topBarCloudBadge" class="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-bold">
+          ☁️ Nuvem
         </span>
       </div>
 
@@ -139,12 +141,9 @@
     </div>
   </div>
 
-  <!-- ===================================================================== -->
-  <!-- 1. HEADER FIXO ELEGANTE                                               -->
-  <!-- ===================================================================== -->
+  <!-- Header Fixo com Logotipo, Navegação, Busca e Sacola -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-melua-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
-      <!-- Marca & Logotipo Oficial -->
       <a href="#inicio" class="flex items-center gap-3 group focus:outline-none min-w-0">
         <div class="w-12 h-12 rounded-full p-0.5 bg-gradient-to-tr from-melua-gold to-melua-goldLight shadow-sm shrink-0 overflow-hidden">
           <img
@@ -172,7 +171,6 @@
         </div>
       </a>
 
-      <!-- Links de Navegação -->
       <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-melua-ink">
         <a href="#inicio" class="hover:text-melua-mauve transition-colors">Início</a>
         <a href="#produtos" class="hover:text-melua-mauve transition-colors">Produtos</a>
@@ -180,7 +178,6 @@
         <a href="#sobre" class="hover:text-melua-mauve transition-colors">Sobre a Melua</a>
       </nav>
 
-      <!-- Ações Rápidas: Busca + Sacola -->
       <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
         <button
           type="button"
@@ -214,14 +211,10 @@
     </div>
   </header>
 
-  <!-- ===================================================================== -->
-  <!-- CONTEÚDO PRINCIPAL                                                    -->
-  <!-- ===================================================================== -->
+  <!-- Conteúdo Principal da Loja -->
   <main class="flex-1">
 
-    <!-- =================================================================== -->
-    <!-- 2. SEÇÃO HERO EDITORIAL 2026 (#inicio)                              -->
-    <!-- =================================================================== -->
+    <!-- Seção Hero Editorial (#inicio) -->
     <section id="inicio" class="pt-6 pb-8 sm:pt-10 sm:pb-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
@@ -229,16 +222,12 @@
           style="background-image: radial-gradient(circle at 8% 12%, rgba(244, 232, 238, 0.95) 0%, transparent 44%), radial-gradient(circle at 92% 88%, rgba(212, 175, 122, 0.22) 0%, transparent 46%);"
         >
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 p-6 sm:p-10 lg:p-14 items-center">
-
-            <!-- Coluna Esquerda: Tipografia Editorial & Selos -->
             <div class="lg:col-span-7 space-y-6 text-left">
-              <!-- Selo '✦ MELUA' -->
               <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-melua-blushSoft border border-melua-border text-melua-plum text-xs font-bold tracking-[0.22em] uppercase">
                 <span class="text-melua-gold">✦</span>
                 <span>MELUA</span>
               </div>
 
-              <!-- Título Monumental -->
               <h1 class="font-editorial text-5xl sm:text-6xl lg:text-7xl font-bold text-melua-ink leading-[1.03] tracking-tight">
                 Sua beleza,
                 <span class="block italic font-semibold bg-gradient-to-r from-melua-plum via-melua-plumMid to-melua-mauve bg-clip-text text-transparent">
@@ -246,12 +235,10 @@
                 </span>
               </h1>
 
-              <!-- Subtítulo Institucional -->
               <p class="text-sm sm:text-base lg:text-lg text-melua-body leading-relaxed max-w-xl">
                 Mais que uma loja, a <strong class="text-melua-ink font-semibold">MELUA</strong> é sobre se sentir bem, se cuidar e realçar o que há de mais lindo em você. Produtos à pronta entrega selecionados com carinho e atendimento especial.
               </p>
 
-              <!-- Botões CTA -->
               <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
                 <a
                   href="#produtos"
@@ -268,7 +255,6 @@
                 </button>
               </div>
 
-              <!-- Micro-Selos de Confiança -->
               <div class="pt-4 border-t border-melua-border flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm font-semibold text-melua-ink">
                 <span class="inline-flex items-center gap-1.5">✨ Pronta Entrega</span>
                 <span class="text-melua-border">•</span>
@@ -278,10 +264,9 @@
               </div>
             </div>
 
-            <!-- Coluna Direita: Card Editorial Vinho-Ameixa com Moldura Personalizável -->
+            <!-- Card Editorial Vinho-Ameixa com Moldura Personalizável -->
             <div class="lg:col-span-5">
               <div class="relative rounded-[28px] bg-gradient-to-br from-melua-plum via-[#361027] to-melua-plumDeep border-2 border-melua-gold/70 p-6 sm:p-7 text-white shadow-xl overflow-hidden">
-                <!-- Aura Radial Interna -->
                 <div
                   class="pointer-events-none absolute -top-16 -right-16 w-56 h-56 rounded-full opacity-35"
                   style="background: radial-gradient(circle, #F3DFC1 0%, transparent 70%);"
@@ -291,7 +276,6 @@
                   style="background: radial-gradient(circle, #9D6482 0%, transparent 70%);"
                 ></div>
 
-                <!-- Topo: Brasão Oficial da Melua -->
                 <div class="relative z-10 flex items-center justify-between gap-2.5">
                   <div class="flex items-center gap-3 min-w-0">
                     <div class="w-12 h-12 rounded-full p-0.5 bg-gradient-to-tr from-melua-gold to-melua-goldLight shadow-md shrink-0 overflow-hidden">
@@ -318,29 +302,23 @@
                   </span>
                 </div>
 
-                <!-- Moldura Central Personalizável (Renderizada via JS) -->
+                <!-- Slot de mídia editável via JS -->
                 <div id="heroCardMediaSlot" class="relative z-10 my-5"></div>
 
-                <!-- Base Glassmorphic do Card -->
                 <div class="relative z-10 flex flex-wrap items-center justify-between gap-2 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-[11px] sm:text-xs">
                   <span class="font-semibold text-melua-goldLight">✨ Pronta Entrega</span>
                   <span class="font-semibold text-white">🛵 Suporte Uber / 99 Moto</span>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </section>
 
-    <!-- =================================================================== -->
-    <!-- 3. VITRINE DE PRODUTOS 100% PRONTA ENTREGA + PAGINAÇÃO (#produtos)  -->
-    <!-- =================================================================== -->
+    <!-- Vitrine de Produtos Pronta Entrega com Busca, Filtros e Paginação (#produtos) -->
     <section id="produtos" class="py-6 sm:py-10 scroll-mt-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <!-- Cabeçalho da Vitrine + Busca -->
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
           <div>
             <span class="text-xs uppercase tracking-[0.22em] text-melua-mauve font-bold">✦ 100% Pronta Entrega</span>
@@ -349,7 +327,6 @@
             </h2>
           </div>
 
-          <!-- Input de Busca em Tempo Real -->
           <div class="relative w-full md:w-80">
             <input
               type="text"
@@ -364,7 +341,6 @@
           </div>
         </div>
 
-        <!-- Filtros por Categoria + Contador -->
         <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
           <div id="categoryFilters" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1"></div>
           <span id="productCountLabel" class="text-xs font-semibold text-melua-body">
@@ -372,13 +348,10 @@
           </span>
         </div>
 
-        <!-- Grade Responsiva: 2 colunas mobile, 3 tablet, 4 desktop -->
         <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-6"></div>
 
-        <!-- Barra de Paginação Automática -->
         <div id="productPagination" class="mt-8"></div>
 
-        <!-- Estado Vazio de Busca -->
         <div id="emptySearchState" class="hidden text-center py-12 px-4 bg-white rounded-3xl border border-melua-border">
           <p class="font-editorial text-2xl font-bold text-melua-ink">Nenhum produto encontrado</p>
           <p class="text-sm text-melua-body mt-1">Tente buscar outro termo ou veja todos os itens disponíveis à pronta entrega.</p>
@@ -390,30 +363,3126 @@
             Ver Todos os Produtos
           </button>
         </div>
-
       </div>
     </section>
 
-    <!-- =================================================================== -->
-    <!-- 4. BANNER DE PROMOÇÕES (#promocoes)                                 -->
-    <!-- =================================================================== -->
+    <!-- Banner de Promoções (#promocoes) -->
     <section id="promocoes" class="py-6 sm:py-10 scroll-mt-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           class="relative rounded-[32px] border border-melua-gold/60 shadow-editorial overflow-hidden p-7 sm:p-10 lg:p-12 text-white"
           style="background: linear-gradient(135deg, #240A19 0%, #471633 52%, #2E0C20 100%);"
         >
-          <!-- Brilho Dourado Radial -->
           <div
             class="pointer-events-none absolute -top-24 right-1/4 w-80 h-80 rounded-full opacity-25"
             style="background: radial-gradient(circle, #D4AF7A 0%, transparent 70%);"
           ></div>
 
-          <!-- Pincel Cosmético Ilustrado & Partículas Douradas -->
           <svg
             viewBox="0 0 320 200"
             class="pointer-events-none hidden md:block absolute right-52 top-1/2 -translate-y-1/2 w-64 h-44 opacity-45"
             xmlns="http://www.w3.org/2000/svg"
           >
             <circle cx="105" cy="95" r="68" fill="#D4AF7A" fill-opacity="0.2" />
-            <circle cx="105" cy
+            <circle cx="105" cy="95" r="44" fill="#9D6482" fill-opacity="0.24" />
+            <circle cx="72" cy="68" r="2.5" fill="#F3DFC1" />
+            <circle cx="94" cy="48" r="1.8" fill="#FFFFFF" />
+            <circle cx="62" cy="112" r="2" fill="#F3DFC1" />
+            <circle cx="128" cy="42" r="2.2" fill="#F3DFC1" />
+            <g transform="translate(135, 92) rotate(-32)">
+              <rect x="38" y="-7" width="120" height="14" rx="7" fill="#240A19" stroke="#D4AF7A" stroke-width="1.2" />
+              <rect x="18" y="-9" width="22" height="18" rx="2" fill="#D4AF7A" />
+              <path d="M18 -11 C-16 -24 -24 24 18 11 Z" fill="#9D6482" />
+            </g>
+          </svg>
+
+          <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+            <div class="space-y-2.5 max-w-xl">
+              <span class="inline-block text-xs font-bold tracking-[0.24em] uppercase text-melua-goldLight">
+                ✦ CURADORIA PROMOCIONAL MELUA
+              </span>
+              <h2 class="leading-none">
+                <span class="block font-sans text-2xl sm:text-3xl lg:text-4xl font-bold tracking-[0.22em] uppercase text-white">
+                  PROMOÇÕES
+                </span>
+                <span class="block font-editorial italic text-5xl sm:text-6xl lg:text-7xl font-bold text-melua-goldLight mt-1">
+                  imperdíveis!
+                </span>
+              </h2>
+              <p class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-white/95 pt-1">
+                GARANTA JÁ OS SEUS FAVORITOS ♡
+              </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 shrink-0">
+              <div class="w-28 h-28 rounded-full border-2 border-melua-gold bg-white/10 backdrop-blur-md flex flex-col items-center justify-center text-center p-3 shadow-lg">
+                <span class="text-[10px] font-bold tracking-[0.16em] uppercase text-melua-goldLight leading-tight">
+                  DESCONTOS
+                </span>
+                <span class="font-editorial italic text-xl font-bold text-white leading-tight mt-0.5">
+                  ESPECIAIS
+                </span>
+                <span class="text-[10px] text-melua-goldLight mt-0.5">✦</span>
+              </div>
+
+              <button
+                type="button"
+                data-action="filter-promotions"
+                class="px-8 py-4 rounded-full bg-white hover:bg-melua-goldLight text-melua-ink text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg transition-all active:scale-95"
+              >
+                VER OFERTAS →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Sobre a Melua (#sobre) -->
+    <section id="sobre" class="py-6 sm:py-10 scroll-mt-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-[32px] border border-melua-border shadow-editorial overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+          <div
+            class="lg:col-span-5 p-8 sm:p-10 flex flex-col items-center justify-center text-center relative overflow-hidden"
+            style="background: linear-gradient(145deg, #F4E8EE 0%, #E9D3DF 100%);"
+          >
+            <svg viewBox="0 0 280 230" class="w-60 sm:w-64 h-auto drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="140" cy="206" rx="92" ry="12" fill="#471633" opacity="0.16" />
+              <path d="M92 78 C98 48, 128 54, 142 74 C154 50, 182 52, 188 78 Z" fill="#FFFFFF" opacity="0.92" />
+              <path d="M112 78 C112 36, 168 36, 168 78" fill="none" stroke="#D4AF7A" stroke-width="4" stroke-linecap="round" />
+              <rect x="82" y="76" width="116" height="126" rx="12" fill="#471633" stroke="#D4AF7A" stroke-width="1.5" />
+              <rect x="90" y="84" width="100" height="110" rx="8" fill="none" stroke="#F3DFC1" stroke-opacity="0.45" stroke-width="1" />
+              <text x="140" y="130" text-anchor="middle" font-size="11" fill="#F3DFC1">✦</text>
+              <text x="140" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="19" font-weight="bold" letter-spacing="3.5" fill="#FFFFFF">MELUA</text>
+              <text x="140" y="165" text-anchor="middle" font-family="sans-serif" font-size="7" letter-spacing="2.2" fill="#F3DFC1">COSMÉTICOS</text>
+
+              <g transform="translate(46, 146)">
+                <rect x="4" y="18" width="18" height="36" rx="5" fill="#9D6482" opacity="0.75" />
+                <rect x="6" y="4" width="14" height="14" rx="2" fill="#D4AF7A" opacity="0.9" />
+              </g>
+              <g transform="translate(208, 154)">
+                <circle cx="16" cy="24" r="18" fill="#D4AF7A" opacity="0.85" />
+                <circle cx="16" cy="24" r="13" fill="#FAF5F7" />
+              </g>
+            </svg>
+
+            <span class="mt-3 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/95 border border-melua-border text-melua-plum text-xs font-bold tracking-[0.2em] uppercase">
+              ✦ MELUA • @melua.br
+            </span>
+          </div>
+
+          <div class="lg:col-span-7 p-7 sm:p-10 lg:p-12 flex flex-col justify-center bg-white">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-0.5 bg-melua-gold"></span>
+              <span class="text-xs font-bold uppercase tracking-[0.24em] text-melua-mauve">
+                SOBRE A MELUA
+              </span>
+            </div>
+
+            <h2 class="font-editorial text-3xl sm:text-4xl lg:text-5xl font-bold text-melua-ink mt-3 leading-tight">
+              Beleza que acolhe, realça e inspira.
+            </h2>
+
+            <p class="mt-4 text-sm sm:text-base lg:text-lg text-melua-body leading-relaxed">
+              Mais que uma loja, a <strong class="text-melua-ink font-semibold">MELUA</strong> é sobre se sentir bem, se cuidar e realçar o que há de mais lindo em você. Aqui você encontra produtos de qualidade, com muito amor e um atendimento especial. ♡
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-2.5">
+              <span class="px-3.5 py-2 rounded-full bg-melua-bg border border-melua-border text-xs font-bold text-melua-ink">
+                ✨ Curadoria com Amor
+              </span>
+              <span class="px-3.5 py-2 rounded-full bg-melua-bg border border-melua-border text-xs font-bold text-melua-ink">
+                ⚡ 100% Pronta Entrega
+              </span>
+              <span class="px-3.5 py-2 rounded-full bg-melua-bg border border-melua-border text-xs font-bold text-melua-ink">
+                🛵 Suporte Uber / 99 Moto
+              </span>
+            </div>
+
+            <div class="mt-7">
+              <button
+                type="button"
+                data-action="open-about-modal"
+                class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-melua-plum hover:bg-melua-plumMid text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-sm transition-all active:scale-95"
+              >
+                <span>SAIBA MAIS →</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé Institucional com Acesso à Área da Lojista -->
+  <footer id="contato" class="bg-melua-plum text-white border-t border-melua-gold/35 mt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-28 sm:pb-24 sm:pr-52">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div>
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-full p-0.5 bg-melua-gold overflow-hidden shrink-0">
+              <img
+                src="https://i.postimg.cc/3NKzdfpD/b1b881cc-f3c2-452b-bcc9-8245c03934d6.jpg"
+                alt="Melua Cosméticos"
+                data-fallback="logo"
+                class="w-full h-full object-cover rounded-full bg-melua-plum"
+              />
+              <div style="display:none;" class="w-full h-full rounded-full bg-melua-plum items-center justify-center border border-melua-gold">
+                <svg viewBox="0 0 40 40" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+                  <text x="20" y="25" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="bold" fill="#F3DFC1">ML</text>
+                </svg>
+              </div>
+            </div>
+            <div>
+              <span class="font-editorial text-2xl font-bold text-white">Melua Cosméticos</span>
+              <p class="text-xs text-melua-goldLight">@melua.br • Beleza &amp; Autocuidado</p>
+            </div>
+          </div>
+          <p class="text-xs text-white/85 mt-4 leading-relaxed max-w-sm">
+            Produtos de qualidade selecionados com muito amor e um atendimento especial para realçar o que há de mais lindo em você.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-editorial text-xl font-bold text-white mb-3">Envio &amp; Atendimento</h4>
+          <ul class="space-y-2 text-xs text-white/90">
+            <li>✦ 100% Produtos à Pronta Entrega</li>
+            <li>🛵 Suporte para envio via Uber Moto / 99 Moto Entrega</li>
+            <li>🛍️ Retirada combinada diretamente no WhatsApp</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-editorial text-xl font-bold text-white mb-3">Fale com a Melua</h4>
+          <a
+            id="footerWhatsappCta"
+            href="https://wa.me/5511965966235?text=Ol%C3%A1%20Melua!%20Vim%20pelo%20site%20da%20Melua%20Cosm%C3%A9ticos%20(%40melua.br)."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-melua-goldLight text-melua-ink text-xs font-bold transition-all"
+          >
+            <span id="footerWhatsappLabel">📲 WhatsApp: +55 11 96596-6235</span>
+          </a>
+          <p class="text-xs text-white/85 mt-3">
+            Instagram oficial: <span class="text-melua-goldLight font-semibold">@melua.br</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 pt-6 border-t border-white/15 flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4 text-xs text-white/80">
+        <button
+          type="button"
+          data-action="trigger-admin-login"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/15 hover:bg-white/25 border border-melua-gold/60 text-white font-bold transition-all shrink-0"
+        >
+          <span>🔒 Área da Lojista</span>
+        </button>
+        <p>© 2026 Melua Cosméticos (@melua.br). Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante WhatsApp Melua -->
+  <a
+    id="floatingWhatsappBtn"
+    href="https://wa.me/5511965966235?text=Ol%C3%A1%20Melua!%20Estou%20no%20site%20da%20Melua%20Cosm%C3%A9ticos%20e%20gostaria%20de%20ajuda."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar com Melua no WhatsApp"
+    class="fixed bottom-5 right-5 z-40 flex items-center gap-2 px-4 py-3 rounded-full bg-melua-plumDeep hover:bg-melua-plum text-white border border-melua-gold shadow-xl transition-all hover:scale-105 active:scale-95"
+  >
+    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+    <span class="text-xs sm:text-sm font-bold">WhatsApp Melua</span>
+  </a>
+
+  <!-- Sacola Lateral & Checkout WhatsApp -->
+  <div id="cartDrawerBackdrop" class="fixed inset-0 z-50 hidden bg-melua-plumDeep/65 backdrop-blur-xs">
+    <div class="fixed inset-y-0 right-0 w-full max-w-lg bg-melua-bg shadow-2xl flex flex-col border-l border-melua-border">
+      <div class="px-6 py-5 bg-white border-b border-melua-border flex items-center justify-between">
+        <div>
+          <h2 class="font-editorial text-2xl sm:text-3xl font-bold text-melua-ink">Sua Sacola Melua</h2>
+          <p class="text-xs text-melua-body">Finalize e envie seu pedido direto para o WhatsApp</p>
+        </div>
+        <button
+          type="button"
+          data-action="close-cart"
+          class="w-9 h-9 rounded-full bg-melua-bg hover:bg-melua-blushSoft text-melua-ink font-bold flex items-center justify-center border border-melua-border"
+          aria-label="Fechar Sacola"
+        >
+          ✕
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto p-5 sm:p-6 space-y-5">
+        <div id="cartItemsContainer" class="space-y-3"></div>
+
+        <div id="checkoutFormSection" class="hidden space-y-4 pt-3 border-t border-melua-border">
+          <div class="bg-white rounded-2xl p-4 border border-melua-border space-y-3">
+            <h3 class="font-editorial text-xl font-bold text-melua-ink">1. Seus Dados</h3>
+            <div>
+              <label for="customerNameInput" class="block text-xs font-bold text-melua-ink mb-1">
+                Seu Nome *
+              </label>
+              <input
+                type="text"
+                id="customerNameInput"
+                placeholder="Digite seu nome completo"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-melua-bg border border-melua-border text-sm text-melua-ink focus:outline-none focus:border-melua-plum focus:bg-white"
+              />
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-4 border border-melua-border space-y-3">
+            <h3 class="font-editorial text-xl font-bold text-melua-ink">2. Entrega ou Retirada</h3>
+
+            <label class="block cursor-pointer">
+              <input type="radio" name="deliveryMethod" value="uber_99_moto" checked class="peer sr-only" />
+              <div class="p-3.5 rounded-2xl border-2 border-melua-border peer-checked:border-melua-plum peer-checked:bg-melua-blushSoft/65 transition-all">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-xs sm:text-sm font-bold text-melua-ink">🛵 Suporte Uber Moto / 99 Moto Entrega</span>
+                  <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-melua-plum text-white">Cotado na hora</span>
+                </div>
+                <p class="text-xs text-melua-body mt-1">
+                  Oferecemos suporte completo para solicitar sua entrega via Uber Moto ou 99 Moto Entrega.
+                </p>
+              </div>
+            </label>
+
+            <div id="deliveryAddressBox" class="pt-1">
+              <label for="customerAddressInput" class="block text-xs font-bold text-melua-ink mb-1">
+                Bairro / Endereço para cotação rápida pelo app (Opcional)
+              </label>
+              <input
+                type="text"
+                id="customerAddressInput"
+                placeholder="Ex: Rua das Flores, 120 - Centro"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-melua-bg border border-melua-border text-sm text-melua-ink focus:outline-none focus:border-melua-plum focus:bg-white"
+              />
+            </div>
+
+            <label class="block cursor-pointer">
+              <input type="radio" name="deliveryMethod" value="retirada_combinar" class="peer sr-only" />
+              <div class="p-3.5 rounded-2xl border-2 border-melua-border peer-checked:border-melua-plum peer-checked:bg-melua-blushSoft/65 transition-all">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-xs sm:text-sm font-bold text-melua-ink">🛍️ Retirada / Combinar pelo WhatsApp</span>
+                  <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900">Sem taxa</span>
+                </div>
+                <p class="text-xs text-melua-body mt-1">
+                  Combine o local e horário de retirada diretamente pelo WhatsApp da Melua.
+                </p>
+              </div>
+            </label>
+          </div>
+
+          <div class="bg-white rounded-2xl p-4 border border-melua-border space-y-2.5">
+            <h3 class="font-editorial text-xl font-bold text-melua-ink">3. Forma de Pagamento</h3>
+            <div class="grid grid-cols-3 gap-2">
+              <label class="cursor-pointer">
+                <input type="radio" name="paymentMethod" value="Pix" checked class="peer sr-only" />
+                <div class="py-2.5 px-2 rounded-xl border border-melua-border peer-checked:border-melua-plum peer-checked:bg-melua-plum peer-checked:text-white text-center text-xs font-bold text-melua-ink transition-all">
+                  Pix
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="paymentMethod" value="Cartão" class="peer sr-only" />
+                <div class="py-2.5 px-2 rounded-xl border border-melua-border peer-checked:border-melua-plum peer-checked:bg-melua-plum peer-checked:text-white text-center text-xs font-bold text-melua-ink transition-all">
+                  Cartão
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="paymentMethod" value="Dinheiro" class="peer sr-only" />
+                <div class="py-2.5 px-2 rounded-xl border border-melua-border peer-checked:border-melua-plum peer-checked:bg-melua-plum peer-checked:text-white text-center text-xs font-bold text-melua-ink transition-all">
+                  Dinheiro
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="cartFooterSection" class="hidden p-5 sm:p-6 bg-white border-t border-melua-border space-y-3">
+        <div class="flex items-center justify-between text-base font-bold text-melua-ink">
+          <span>Subtotal dos Produtos</span>
+          <span id="cartSubtotalDisplay" class="text-xl text-melua-plum">R$ 0,00</span>
+        </div>
+        <button
+          type="button"
+          data-action="finalize-whatsapp-order"
+          class="w-full py-3.5 px-6 rounded-full bg-melua-plum hover:bg-melua-plumMid text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all active:scale-[0.99]"
+        >
+          <span>📲 Finalizar Pedido no WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Comprovante Digital -->
+  <div id="receiptModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-melua-plumDeep/70 backdrop-blur-xs">
+    <div class="bg-white w-full max-w-md rounded-3xl border border-melua-gold shadow-2xl overflow-hidden animate-fade-up max-h-[90vh] flex flex-col">
+      <div class="bg-melua-plum text-white px-6 py-4 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-3 min-w-0">
+          <div class="w-10 h-10 rounded-full p-0.5 bg-melua-gold overflow-hidden shrink-0">
+            <img
+              src="https://i.postimg.cc/3NKzdfpD/b1b881cc-f3c2-452b-bcc9-8245c03934d6.jpg"
+              alt="Melua Cosméticos"
+              data-fallback="logo"
+              class="w-full h-full object-cover rounded-full bg-melua-plum"
+            />
+            <div style="display:none;" class="w-full h-full rounded-full bg-melua-plum items-center justify-center border border-melua-gold">
+              <svg viewBox="0 0 40 40" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+                <text x="20" y="25" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="bold" fill="#F3DFC1">ML</text>
+              </svg>
+            </div>
+          </div>
+          <div class="min-w-0">
+            <span class="text-[11px] uppercase tracking-widest text-melua-goldLight font-bold">Pedido Registrado</span>
+            <h3 class="font-editorial text-2xl font-bold leading-none mt-0.5">Comprovante Melua</h3>
+          </div>
+        </div>
+        <button type="button" data-action="close-receipt" class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 text-white font-bold shrink-0">✕</button>
+      </div>
+
+      <div id="receiptContent" class="p-6 overflow-y-auto space-y-4 text-sm"></div>
+
+      <div class="p-5 bg-melua-bg border-t border-melua-border space-y-2.5">
+        <a
+          id="receiptWhatsappDirectLink"
+          href="https://wa.me/5511965966235"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full py-3.5 px-5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md flex items-center justify-center gap-2"
+        >
+          <span>📲 Abrir Pedido no WhatsApp</span>
+        </a>
+        <div class="grid grid-cols-2 gap-2">
+          <button
+            type="button"
+            data-action="copy-receipt-text"
+            class="py-2.5 px-4 rounded-full bg-white hover:bg-melua-blushSoft text-melua-ink border border-melua-border text-xs font-bold"
+          >
+            📋 Copiar Resumo
+          </button>
+          <button
+            type="button"
+            data-action="close-receipt"
+            class="py-2.5 px-4 rounded-full bg-melua-plum/10 hover:bg-melua-plum/20 text-melua-ink text-xs font-bold"
+          >
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Sobre a Melua -->
+  <div id="aboutModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-melua-plumDeep/70 backdrop-blur-xs">
+    <div class="bg-white w-full max-w-lg rounded-3xl border border-melua-gold shadow-2xl overflow-hidden animate-fade-up">
+      <div class="bg-melua-plum text-white px-6 py-5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full p-0.5 bg-melua-gold overflow-hidden">
+            <img
+              src="https://i.postimg.cc/3NKzdfpD/b1b881cc-f3c2-452b-bcc9-8245c03934d6.jpg"
+              alt="Melua Cosméticos"
+              data-fallback="logo"
+              class="w-full h-full object-cover rounded-full bg-melua-plum"
+            />
+            <div style="display:none;" class="w-full h-full rounded-full bg-melua-plum items-center justify-center border border-melua-gold">
+              <svg viewBox="0 0 40 40" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+                <text x="20" y="25" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="bold" fill="#F3DFC1">ML</text>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <span class="text-[11px] uppercase tracking-widest text-melua-goldLight font-bold">@melua.br</span>
+            <h3 class="font-editorial text-2xl font-bold leading-none mt-0.5">Sobre a Melua Cosméticos</h3>
+          </div>
+        </div>
+        <button type="button" data-action="close-about-modal" class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 text-white font-bold">✕</button>
+      </div>
+
+      <div class="p-6 sm:p-7 space-y-4 text-sm text-melua-body leading-relaxed">
+        <p class="text-base text-melua-ink font-medium">
+          Mais que uma loja, a <strong class="font-bold text-melua-plum">MELUA</strong> é sobre se sentir bem, se cuidar e realçar o que há de mais lindo em você. Aqui você encontra produtos de qualidade, com muito amor e um atendimento especial. ♡
+        </p>
+        <div class="p-4 rounded-2xl bg-melua-bg border border-melua-border space-y-2 text-xs">
+          <p class="font-bold text-melua-ink">Como funciona sua compra na Melua:</p>
+          <p>✨ <strong>100% Pronta Entrega:</strong> Todos os itens exibidos na vitrine estão disponíveis para envio imediato.</p>
+          <p>🛵 <strong>Suporte Uber Moto / 99 Moto Entrega:</strong> Cotamos e damos todo o suporte para o envio rápido por aplicativo, ou combinamos sua retirada pelo WhatsApp.</p>
+          <p>💬 <strong>Atendimento Humanizado:</strong> Finalize sua sacola no site e converse diretamente conosco pelo WhatsApp oficial.</p>
+        </div>
+        <div class="pt-2 flex justify-end gap-2">
+          <button
+            type="button"
+            data-action="close-about-modal"
+            class="px-6 py-2.5 rounded-full bg-melua-plum hover:bg-melua-plumMid text-white text-xs font-bold"
+          >
+            Explorar Produtos
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Login Área da Lojista -->
+  <div id="adminLoginModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-melua-plumDeep/75 backdrop-blur-xs">
+    <div class="bg-white w-full max-w-sm rounded-3xl border border-melua-gold shadow-2xl p-6 sm:p-7 animate-fade-up">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-full p-0.5 bg-melua-gold overflow-hidden shrink-0">
+            <img
+              src="https://i.postimg.cc/3NKzdfpD/b1b881cc-f3c2-452b-bcc9-8245c03934d6.jpg"
+              alt="Melua Cosméticos"
+              data-fallback="logo"
+              class="w-full h-full object-cover rounded-full bg-melua-plum"
+            />
+            <div style="display:none;" class="w-full h-full rounded-full bg-melua-plum items-center justify-center border border-melua-gold">
+              <svg viewBox="0 0 40 40" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+                <text x="20" y="25" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="bold" fill="#F3DFC1">ML</text>
+              </svg>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full bg-melua-blushSoft text-melua-ink text-xs font-bold">
+            🔒 Área da Lojista
+          </span>
+        </div>
+        <button type="button" data-action="close-admin-login" class="w-8 h-8 rounded-full hover:bg-melua-bg text-melua-body font-bold">✕</button>
+      </div>
+
+      <h3 class="font-editorial text-2xl font-bold text-melua-ink">Painel Melua Cosméticos</h3>
+      <p class="text-xs text-melua-body mt-1">
+        Acesso restrito para gerenciamento da loja, pedidos, catálogo e configurações.
+      </p>
+
+      <form id="adminLoginForm" data-action="submit-admin-login" class="mt-5 space-y-4">
+        <div>
+          <label for="adminPasswordInput" class="block text-xs font-bold text-melua-ink mb-1">Senha</label>
+          <div class="relative">
+            <input
+              type="password"
+              id="adminPasswordInput"
+              autocomplete="current-password"
+              placeholder="Digite a senha de acesso"
+              class="w-full pl-4 pr-11 py-3 rounded-xl bg-melua-bg border border-melua-border text-sm text-melua-ink focus:outline-none focus:border-melua-plum focus:bg-white"
+            />
+            <button
+              type="button"
+              data-action="toggle-password-visibility"
+              aria-label="Mostrar ou ocultar senha"
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-melua-body hover:text-melua-ink px-1.5 py-1"
+            >
+              👁️
+            </button>
+          </div>
+          <p id="adminLoginError" class="hidden text-xs text-rose-700 font-semibold mt-1.5">
+            Senha incorreta. Verifique e tente novamente.
+          </p>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full py-3 rounded-full bg-melua-plum hover:bg-melua-plumMid text-white text-sm font-bold shadow-sm transition-all"
+        >
+          Entrar
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Painel Administrativo Completo da Lojista -->
+  <div id="adminPanelModal" class="fixed inset-0 z-50 hidden bg-melua-plumDeep/75 backdrop-blur-xs overflow-y-auto p-2 sm:p-6">
+    <div class="max-w-6xl mx-auto bg-melua-bg rounded-3xl border border-melua-gold shadow-2xl overflow-hidden my-2 flex flex-col min-h-[82vh]">
+      <div class="bg-melua-plum text-white px-5 sm:px-8 py-5 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-xs uppercase tracking-widest text-melua-goldLight font-bold">👑 Gestão Oficial</span>
+            <span id="adminCloudStatusBadge" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-white/15 text-white">
+              Verificando nuvem...
+            </span>
+          </div>
+          <h2 class="font-editorial text-2xl sm:text-3xl font-bold mt-0.5">Painel Melua Cosméticos</h2>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            data-action="switch-admin-tab"
+            data-tab="vitrine"
+            class="px-4 py-2 rounded-full bg-white text-melua-ink text-xs font-bold hover:bg-melua-goldLight"
+          >
+            🛍️ Voltar para Vitrine
+          </button>
+          <button
+            type="button"
+            data-action="logout-admin"
+            class="px-4 py-2 rounded-full bg-white/15 hover:bg-white/25 text-white text-xs font-bold"
+          >
+            🔒 Sair
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white border-b border-melua-border px-4 sm:px-8 pt-2 flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar">
+        <button type="button" data-action="switch-admin-tab" data-tab="vitrine" class="admin-tab-btn px-3.5 py-3 text-xs sm:text-sm font-bold border-b-2 whitespace-nowrap">
+          🛍️ Vitrine
+        </button>
+        <button type="button" data-action="switch-admin-tab" data-tab="pedidos" class="admin-tab-btn px-3.5 py-3 text-xs sm:text-sm font-bold border-b-2 whitespace-nowrap">
+          📦 Pedidos
+        </button>
+        <button type="button" data-action="switch-admin-tab" data-tab="produtos" class="admin-tab-btn px-3.5 py-3 text-xs sm:text-sm font-bold border-b-2 whitespace-nowrap">
+          ✨ Produtos &amp; Fotos
+        </button>
+        <button type="button" data-action="switch-admin-tab" data-tab="whatsapp" class="admin-tab-btn px-3.5 py-3 text-xs sm:text-sm font-bold border-b-2 whitespace-nowrap">
+          ⚙️ WhatsApp &amp; Loja
+        </button>
+        <button type="button" data-action="switch-admin-tab" data-tab="senha" class="admin-tab-btn px-3.5 py-3 text-xs sm:text-sm font-bold border-b-2 whitespace-nowrap">
+          🔑 Alterar Senha
+        </button>
+      </div>
+
+      <div id="adminTabContent" class="p-5 sm:p-8 flex-1 overflow-y-auto"></div>
+    </div>
+  </div>
+
+  <!-- Container de Notificações Toast -->
+  <div
+    id="toastContainer"
+    class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none flex flex-col items-center gap-2 w-full max-w-md px-4"
+  ></div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // =========================================================================
+      // 0. CONFIGURAÇÃO SUPABASE (MELUA COSMÉTICOS)
+      // =========================================================================
+      const SUPABASE_URL = 'https://vgtaupxeraqlgdtgqpdi.supabase.co';
+      const SUPABASE_ANON_KEY = 'sb_publishable_D2w6fRAyQqG5-zZlN0sAsQ_fdQywnUf';
+      const SUPABASE_BUCKET = 'melua-fotos';
+      const SUPABASE_TABLE = 'melua_store';
+
+      const isCloudConfigured =
+        SUPABASE_URL.startsWith('https://') &&
+        SUPABASE_ANON_KEY.length > 20 &&
+        SUPABASE_ANON_KEY.indexOf('COLE_SUA') === -1;
+
+      const supabaseClient =
+        isCloudConfigured && window.supabase
+          ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+          : null;
+
+      // =========================================================================
+      // 1. CONSTANTES E ARMAZENAMENTO LOCAL SEGURO
+      // =========================================================================
+      const PAGE_SIZE = 8;
+
+      const DEFAULTS = {
+        brandName: 'Melua Cosméticos',
+        handle: '@melua.br',
+        whatsappNumber: '5511965966235',
+        password: 'melua2026'
+      };
+
+      const STORAGE_KEYS = {
+        CATALOG: 'melua_catalog_v9',
+        CART: 'melua_cart_v9',
+        ORDERS: 'melua_orders_v9',
+        PASSWORD: 'melua_password_v9',
+        WHATSAPP: 'melua_whatsapp_v9',
+        HERO_PHOTO: 'melua_hero_photo_v9'
+      };
+
+      const memoryStore = {};
+      const safeStorage = {
+        get: function (key, fallbackVal) {
+          try {
+            const raw = window.localStorage.getItem(key);
+            if (raw !== null && raw !== undefined) {
+              return JSON.parse(raw);
+            }
+          } catch (err) {}
+          return Object.prototype.hasOwnProperty.call(memoryStore, key)
+            ? memoryStore[key]
+            : fallbackVal;
+        },
+        set: function (key, value) {
+          memoryStore[key] = value;
+          try {
+            window.localStorage.setItem(key, JSON.stringify(value));
+            return true;
+          } catch (err) {
+            return false;
+          }
+        }
+      };
+
+      // =========================================================================
+      // 2. CATÁLOGO INICIAL (11 PRODUTOS À PRONTA ENTREGA)
+      // =========================================================================
+      const DEFAULT_PRODUCTS = [
+        {
+          id: 'prod-gloss-love-rain',
+          name: 'Gloss Labial Love Rain',
+          category: 'Maquiagem',
+          price: 17.90,
+          oldPrice: 23.90,
+          promo: true,
+          variants: ['Crystal Pink', 'Berry Glow'],
+          description: 'Brilho espelhado ultra confortável com micropartículas luminosas e hidratação prolongada.',
+          artType: 'love-rain-gloss',
+          customImage: ''
+        },
+        {
+          id: 'prod-gel-esfoliante-melu',
+          name: 'Gel Esfoliante Facial Melu',
+          category: 'Skincare',
+          price: 22.90,
+          oldPrice: null,
+          promo: false,
+          variants: ['100g'],
+          description: 'Renovação celular suave que desobstrui poros e deixa a pele macia e iluminada.',
+          artType: 'melu-gel-scrub',
+          customImage: ''
+        },
+        {
+          id: 'prod-lenco-umedecido',
+          name: 'Lenço Umedecido Demaquilante',
+          category: 'Skincare',
+          price: 11.90,
+          oldPrice: null,
+          promo: false,
+          variants: ['25 Unidades'],
+          description: 'Remove a maquiagem com suavidade sem agredir ou ressecar a pele, ideal para levar na bolsa.',
+          artType: 'makeup-wipes',
+          customImage: ''
+        },
+        {
+          id: 'prod-esfoliante-melua-berry',
+          name: 'Esfoliante Corporal Melua Berry',
+          category: 'Skincare',
+          price: 29.90,
+          oldPrice: 36.90,
+          promo: true,
+          variants: ['Frutas Vermelhas 250g'],
+          description: 'Esfoliação cremosa perfumada que nutre profundamente e deixa toque aveludado na pele.',
+          artType: 'berry-body-scrub',
+          customImage: ''
+        },
+        {
+          id: 'prod-po-banana-fenzza',
+          name: 'Pó Banana Fenzza 15g',
+          category: 'Maquiagem',
+          price: 18.90,
+          oldPrice: 24.90,
+          promo: true,
+          variants: ['Tom Universal'],
+          description: 'Textura ultrafina aveludada que sela a maquiagem, controla o brilho e não estoura no flash.',
+          artType: 'banana-powder',
+          customImage: ''
+        },
+        {
+          id: 'prod-meu-pet-gloss-bunny',
+          name: 'Meu Pet Gloss Bunny',
+          category: 'Maquiagem',
+          price: 16.90,
+          oldPrice: null,
+          promo: false,
+          variants: ['Brilho Rosé'],
+          description: 'Gloss labial hidratante com brilho espelhado e tampa colecionável de coelhinho.',
+          artType: 'pet-gloss',
+          customImage: ''
+        },
+        {
+          id: 'prod-manteiga-cacau-safira',
+          name: 'Protetor Labial Manteiga de Cacau Safira',
+          category: 'Skincare',
+          price: 9.90,
+          oldPrice: null,
+          promo: false,
+          variants: ['Tutti-Frutti', 'Melancia', 'Menta', 'Coco'],
+          description: 'Hidratação intensa diária contra ressecamento labial com aromas deliciosos.',
+          artType: 'cocoa-butter',
+          customImage: ''
+        },
+        {
+          id: 'prod-espelho-bolsa-luxo',
+          name: 'Espelho de Bolsa Metalizado Luxo',
+          category: 'Acessórios',
+          price: 15.90,
+          oldPrice: null,
+          promo: false,
+          variants: ['Dourado Champagne', 'Roxo Metálico', 'Prata'],
+          description: 'Compacto sofisticado com espelho duplo (normal e aumento) ideal para retoques.',
+          artType: 'pocket-mirror',
+          customImage: ''
+        },
+        {
+          id: 'prod-chaveiro-lip-gloss-fun',
+          name: 'Chaveiro Lip Gloss Fun',
+          category: 'Maquiagem',
+          price: 15.90,
+          oldPrice: null,
+          promo: false,
+          variants: ['Cristal Shine'],
+          description: 'Brilho labial incolor com efeito molhado e pingente exclusivo para prender na bolsa.',
+          artType: 'sport-gloss',
+          customImage: ''
+        },
+        {
+          id: 'prod-lip-bunny-chocolate',
+          name: 'Lip Bunny Chocolate',
+          category: 'Maquiagem',
+          price: 24.90,
+          oldPrice: 31.90,
+          promo: true,
+          variants: ['Chocolate Glow'],
+          description: 'Gloss labial com micropartículas douradas, aroma irresistível de chocolate e alta hidratação.',
+          artType: 'lip-bunny',
+          customImage: ''
+        },
+        {
+          id: 'prod-kit-pinceis-esfumadores',
+          name: 'Kit Pincéis Esfumadores',
+          category: 'Acessórios',
+          price: 22.90,
+          oldPrice: null,
+          promo: false,
+          variants: ['Champagne Duo'],
+          description: 'Dupla essencial de cerdas macias para esfumar sombras e detalhar o acabamento dos olhos.',
+          artType: 'brush-duo',
+          customImage: ''
+        }
+      ];
+
+      function cloneDefaultProducts() {
+        return DEFAULT_PRODUCTS.map(function (item) {
+          return Object.assign({}, item, { variants: item.variants.slice() });
+        });
+      }
+
+      function normalizeProductsList(list) {
+        return list.map(function (p, idx) {
+          return {
+            id: p.id || 'prod-' + idx,
+            name: String(p.name || 'Produto Melua'),
+            category: String(p.category || 'Maquiagem'),
+            price: Number(p.price) || 19.90,
+            oldPrice: p.oldPrice ? Number(p.oldPrice) : null,
+            promo: Boolean(p.promo),
+            variants: Array.isArray(p.variants) && p.variants.length > 0 ? p.variants : ['Padrão'],
+            description: String(p.description || 'Produto à pronta entrega Melua Cosméticos.'),
+            artType: String(p.artType || 'pet-gloss'),
+            customImage: String(p.customImage || '')
+          };
+        });
+      }
+
+      function loadCatalog() {
+        const stored = safeStorage.get(STORAGE_KEYS.CATALOG, null);
+        if (!Array.isArray(stored) || stored.length === 0) {
+          const fresh = cloneDefaultProducts();
+          safeStorage.set(STORAGE_KEYS.CATALOG, fresh);
+          return fresh;
+        }
+        return normalizeProductsList(stored);
+      }
+
+      // =========================================================================
+      // 3. ESTADO CENTRAL DA APLICAÇÃO
+      // =========================================================================
+      const state = {
+        products: loadCatalog(),
+        cart: safeStorage.get(STORAGE_KEYS.CART, []),
+        orders: safeStorage.get(STORAGE_KEYS.ORDERS, []),
+        whatsappNumber: String(safeStorage.get(STORAGE_KEYS.WHATSAPP, DEFAULTS.whatsappNumber)),
+        heroCardImage: String(safeStorage.get(STORAGE_KEYS.HERO_PHOTO, '')),
+        selectedFilter: 'Todos',
+        searchQuery: '',
+        currentPage: 1,
+        selectedVariants: {},
+        isAdminLoggedIn: false,
+        activeAdminTab: 'vitrine',
+        editingProductId: null,
+        pendingUploadedImage: '',
+        isUploadingImage: false,
+        cloudConnected: false,
+        lastAddedProductPage: null,
+        lastReceiptText: ''
+      };
+
+      function syncSelectedVariants() {
+        state.products.forEach(function (p) {
+          if (!state.selectedVariants[p.id] || p.variants.indexOf(state.selectedVariants[p.id]) === -1) {
+            state.selectedVariants[p.id] = p.variants[0] || 'Padrão';
+          }
+        });
+      }
+      syncSelectedVariants();
+
+      // =========================================================================
+      // 4. SINCRONIZAÇÃO GLOBAL NA NUVEM (SUPABASE)
+      // =========================================================================
+      function updateCloudStatusBadges() {
+        const adminBadge = document.getElementById('adminCloudStatusBadge');
+        const topBadge = document.getElementById('topBarCloudBadge');
+
+        if (!supabaseClient) {
+          if (adminBadge) {
+            adminBadge.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-400/20 border border-amber-300 text-amber-200';
+            adminBadge.textContent = '⚠️ Modo Local';
+          }
+          if (topBadge) topBadge.textContent = '⚠️ Local';
+          return;
+        }
+
+        if (state.cloudConnected) {
+          if (adminBadge) {
+            adminBadge.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/25 border border-emerald-300 text-emerald-100';
+            adminBadge.textContent = '☁️ Nuvem Conectada (Global)';
+          }
+          if (topBadge) topBadge.textContent = '☁️ Nuvem Ativa';
+        } else if (adminBadge) {
+          adminBadge.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-white/15 text-white';
+          adminBadge.textContent = '⏳ Sincronizando...';
+        }
+      }
+
+      async function saveGlobalStoreToCloud(silent) {
+        safeStorage.set(STORAGE_KEYS.CATALOG, state.products);
+        safeStorage.set(STORAGE_KEYS.HERO_PHOTO, state.heroCardImage);
+        safeStorage.set(STORAGE_KEYS.WHATSAPP, state.whatsappNumber);
+        safeStorage.set(STORAGE_KEYS.ORDERS, state.orders);
+
+        if (!supabaseClient) return false;
+
+        try {
+          const currentPassword = String(safeStorage.get(STORAGE_KEYS.PASSWORD, DEFAULTS.password));
+          const payload = {
+            products: state.products,
+            heroCardImage: state.heroCardImage,
+            whatsappNumber: state.whatsappNumber,
+            orders: state.orders,
+            password: currentPassword
+          };
+
+          const { error } = await supabaseClient
+            .from(SUPABASE_TABLE)
+            .upsert(
+              {
+                id: 'main',
+                data: payload,
+                updated_at: new Date().toISOString()
+              },
+              { onConflict: 'id' }
+            );
+
+          if (error) {
+            if (error.code === '42501') {
+              console.warn('Supabase (melua_store): permissão anon pendente no SQL Editor. Operando em modo local.');
+            } else {
+              console.warn('Aviso ao salvar na nuvem:', error.message);
+            }
+            state.cloudConnected = false;
+            updateCloudStatusBadges();
+            if (!silent) showToast('Salvo localmente (libere a permissão SQL no Supabase para nuvem).');
+            return false;
+          }
+
+          state.cloudConnected = true;
+          updateCloudStatusBadges();
+          return true;
+        } catch (err) {
+          state.cloudConnected = false;
+          updateCloudStatusBadges();
+          return false;
+        }
+      }
+
+      async function loadGlobalStoreFromCloud() {
+        if (!supabaseClient) {
+          updateCloudStatusBadges();
+          return;
+        }
+
+        try {
+          const { data, error } = await supabaseClient
+            .from(SUPABASE_TABLE)
+            .select('data')
+            .eq('id', 'main')
+            .maybeSingle();
+
+          if (error) {
+            if (error.code === '42501') {
+              console.warn('Supabase (melua_store): permissão anon pendente no SQL Editor. Carregando catálogo local.');
+            } else {
+              console.warn('Aviso ao carregar dados da nuvem:', error.message);
+            }
+            state.cloudConnected = false;
+            updateCloudStatusBadges();
+            return;
+          }
+
+          state.cloudConnected = true;
+          updateCloudStatusBadges();
+
+          if (!data || !data.data) {
+            await saveGlobalStoreToCloud(true);
+            return;
+          }
+
+          const remote = data.data;
+
+          if (Array.isArray(remote.products) && remote.products.length > 0) {
+            state.products = normalizeProductsList(remote.products);
+            safeStorage.set(STORAGE_KEYS.CATALOG, state.products);
+          }
+
+          if (typeof remote.heroCardImage === 'string') {
+            state.heroCardImage = remote.heroCardImage;
+            safeStorage.set(STORAGE_KEYS.HERO_PHOTO, state.heroCardImage);
+          }
+
+          if (typeof remote.whatsappNumber === 'string' && remote.whatsappNumber.length >= 10) {
+            state.whatsappNumber = remote.whatsappNumber;
+            safeStorage.set(STORAGE_KEYS.WHATSAPP, state.whatsappNumber);
+          }
+
+          if (Array.isArray(remote.orders)) {
+            state.orders = remote.orders;
+            safeStorage.set(STORAGE_KEYS.ORDERS, state.orders);
+          }
+
+          if (typeof remote.password === 'string' && remote.password.length >= 4) {
+            safeStorage.set(STORAGE_KEYS.PASSWORD, remote.password);
+          }
+
+          syncSelectedVariants();
+          syncWhatsAppLinks();
+          renderHeroCardMedia();
+          renderCategoryFilters();
+          renderProductGrid();
+          if (state.isAdminLoggedIn) {
+            renderAdminTabContent();
+          }
+        } catch (err) {
+          console.error('Erro de conexão com a nuvem:', err);
+        }
+      }
+
+      // =========================================================================
+      // 5. UTILITÁRIOS (MOEDA, TELEFONE, CLIPBOARD, TOAST, COMPRESSÃO & UPLOAD)
+      // =========================================================================
+      function formatBRL(value) {
+        return Number(value || 0).toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL'
+        });
+      }
+
+      function formatPhoneDisplay(digits) {
+        const clean = String(digits || '').replace(/\D/g, '');
+        if (clean.length === 13 && clean.startsWith('55')) {
+          return '+55 ' + clean.slice(2, 4) + ' ' + clean.slice(4, 9) + '-' + clean.slice(9);
+        }
+        return '+' + clean;
+      }
+
+      function buildWhatsAppUrl(messageText) {
+        const cleanDigits = String(state.whatsappNumber || DEFAULTS.whatsappNumber).replace(/\D/g, '');
+        return 'https://wa.me/' + cleanDigits + '?text=' + encodeURIComponent(messageText);
+      }
+
+      function syncWhatsAppLinks() {
+        const defaultMsg = 'Olá Melua! Vim pelo site da Melua Cosméticos (@melua.br) e gostaria de fazer um pedido.';
+        const url = buildWhatsAppUrl(defaultMsg);
+        const floatingBtn = document.getElementById('floatingWhatsappBtn');
+        const footerCta = document.getElementById('footerWhatsappCta');
+        const footerLabel = document.getElementById('footerWhatsappLabel');
+
+        if (floatingBtn) floatingBtn.href = url;
+        if (footerCta) footerCta.href = url;
+        if (footerLabel) footerLabel.textContent = '📲 WhatsApp: ' + formatPhoneDisplay(state.whatsappNumber);
+      }
+
+      function showToast(message) {
+        const container = document.getElementById('toastContainer');
+        if (!container) return;
+
+        const toast = document.createElement('div');
+        toast.className = 'pointer-events-auto px-5 py-3 rounded-full bg-melua-plumDeep text-white text-xs sm:text-sm font-semibold border border-melua-gold shadow-xl animate-fade-up text-center';
+        toast.textContent = message;
+        container.appendChild(toast);
+
+        window.setTimeout(function () {
+          toast.style.opacity = '0';
+          toast.style.transition = 'opacity 0.25s ease';
+          window.setTimeout(function () {
+            if (toast.parentNode) toast.parentNode.removeChild(toast);
+          }, 260);
+        }, 3200);
+      }
+
+      function copyTextToClipboard(text) {
+        try {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          showToast('Resumo copiado para a área de transferência!');
+        } catch (err) {
+          showToast('Use o botão verde para abrir direto no WhatsApp.');
+        }
+      }
+
+      function processAndUploadImage(file, folderName, callback) {
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function (ev) {
+          const img = new Image();
+          img.onload = function () {
+            const maxDim = 680;
+            let w = img.width;
+            let h = img.height;
+            if (w > maxDim || h > maxDim) {
+              if (w > h) {
+                h = Math.round((h * maxDim) / w);
+                w = maxDim;
+              } else {
+                w = Math.round((w * maxDim) / h);
+                h = maxDim;
+              }
+            }
+
+            const canvas = document.createElement('canvas');
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, w, h);
+
+            if (supabaseClient) {
+              canvas.toBlob(
+                async function (blob) {
+                  if (!blob) {
+                    callback(canvas.toDataURL('image/jpeg', 0.8));
+                    return;
+                  }
+                  try {
+                    const fileName =
+                      folderName + '/' + Date.now() + '-' + Math.floor(Math.random() * 10000) + '.jpg';
+
+                    const { error: uploadError } = await supabaseClient.storage
+                      .from(SUPABASE_BUCKET)
+                      .upload(fileName, blob, {
+                        contentType: 'image/jpeg',
+                        upsert: true
+                      });
+
+                    if (uploadError) {
+                      console.error('Erro no upload da foto:', uploadError);
+                      showToast('Aviso: falha ao enviar ao Storage, usando backup local.');
+                      callback(canvas.toDataURL('image/jpeg', 0.8));
+                      return;
+                    }
+
+                    const { data: publicData } = supabaseClient.storage
+                      .from(SUPABASE_BUCKET)
+                      .getPublicUrl(fileName);
+
+                    if (publicData && publicData.publicUrl) {
+                      callback(publicData.publicUrl);
+                    } else {
+                      callback(canvas.toDataURL('image/jpeg', 0.8));
+                    }
+                  } catch (err) {
+                    console.error('Erro inesperado no upload:', err);
+                    callback(canvas.toDataURL('image/jpeg', 0.8));
+                  }
+                },
+                'image/jpeg',
+                0.82
+              );
+            } else {
+              callback(canvas.toDataURL('image/jpeg', 0.8));
+            }
+          };
+          img.src = ev.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      // =========================================================================
+      // 6. CARD PRINCIPAL DO HERO (#inicio)
+      // =========================================================================
+      function getDefaultHeroIllustrationSVG() {
+        return `
+          <svg viewBox="0 0 320 230" class="w-full h-56 sm:h-60 animate-float-gentle" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="hero-aura-grad" cx="50%" cy="48%" r="52%">
+                <stop offset="0%" stop-color="#F3DFC1" stop-opacity="0.34" />
+                <stop offset="65%" stop-color="#9D6482" stop-opacity="0.16" />
+                <stop offset="100%" stop-color="#240A19" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient id="hero-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#F3DFC1" />
+                <stop offset="50%" stop-color="#D4AF7A" />
+                <stop offset="100%" stop-color="#A98249" />
+              </linearGradient>
+              <linearGradient id="hero-mirror-face" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFFFFF" />
+                <stop offset="55%" stop-color="#F8EDF2" />
+                <stop offset="100%" stop-color="#E7CFD9" />
+              </linearGradient>
+              <linearGradient id="hero-lipstick-bullet" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#7D2354" />
+                <stop offset="50%" stop-color="#58153B" />
+                <stop offset="100%" stop-color="#360A22" />
+              </linearGradient>
+            </defs>
+
+            <ellipse cx="160" cy="115" rx="135" ry="95" fill="url(#hero-aura-grad)" />
+            <ellipse cx="160" cy="198" rx="108" ry="12" fill="#170510" opacity="0.55" />
+
+            <g transform="translate(82, 42)">
+              <circle cx="62" cy="82" r="54" fill="url(#hero-gold-grad)" />
+              <circle cx="62" cy="82" r="46" fill="url(#hero-mirror-face)" stroke="#471633" stroke-width="1.5" />
+              <path d="M36 62 L76 42 L84 50 L42 74 Z" fill="#FFFFFF" opacity="0.7" />
+              <path d="M44 92 L88 68 L93 74 L48 98 Z" fill="#FFFFFF" opacity="0.45" />
+              <ellipse cx="62" cy="24" rx="44" ry="18" fill="#471633" stroke="url(#hero-gold-grad)" stroke-width="2" />
+              <text x="62" y="28" text-anchor="middle" font-family="Georgia, serif" font-size="9" font-weight="bold" letter-spacing="2" fill="#F3DFC1">MELUA</text>
+            </g>
+
+            <g transform="translate(184, 52) rotate(8)">
+              <rect x="6" y="76" width="38" height="58" rx="6" fill="#240A19" stroke="url(#hero-gold-grad)" stroke-width="1.6" />
+              <rect x="6" y="96" width="38" height="10" fill="url(#hero-gold-grad)" />
+              <rect x="10" y="46" width="30" height="30" rx="2" fill="url(#hero-gold-grad)" />
+              <path d="M13 46 L13 18 C13 10, 37 4, 37 16 L37 46 Z" fill="url(#hero-lipstick-bullet)" />
+              <ellipse cx="25" cy="13" rx="11" ry="5" transform="rotate(-14 25 13)" fill="#9D6482" />
+              <line x1="17" y1="22" x2="17" y2="42" stroke="#F3DFC1" stroke-opacity="0.45" stroke-width="1.5" stroke-linecap="round" />
+            </g>
+
+            <text x="58" y="64" font-size="16" fill="#F3DFC1">✦</text>
+            <text x="248" y="68" font-size="14" fill="#F3DFC1">✦</text>
+            <text x="242" y="168" font-size="11" fill="#D4AF7A">✦</text>
+            <circle cx="68" cy="154" r="2.5" fill="#F3DFC1" />
+          </svg>
+        `;
+      }
+
+      function renderHeroCardMedia() {
+        const slot = document.getElementById('heroCardMediaSlot');
+        if (!slot) return;
+
+        const adminBtnHtml = state.isAdminLoggedIn
+          ? `<button
+              type="button"
+              data-action="quick-edit-hero-photo"
+              class="mt-3 w-full py-2.5 px-4 rounded-full bg-white/95 hover:bg-melua-goldLight text-melua-ink text-xs font-bold shadow-md flex items-center justify-center gap-1.5 transition-all"
+            >
+              <span>📸 Trocar Foto do Card</span>
+            </button>`
+          : '';
+
+        if (state.heroCardImage) {
+          slot.innerHTML = `
+            <div class="rounded-2xl overflow-hidden border-2 border-melua-gold/75 bg-melua-plumDeep shadow-inner aspect-[4/3]">
+              <img
+                src="${state.heroCardImage}"
+                alt="Destaque Melua Cosméticos"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            ${adminBtnHtml}
+          `;
+        } else {
+          slot.innerHTML = `
+            <div class="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-xs p-2 flex items-center justify-center">
+              ${getDefaultHeroIllustrationSVG()}
+            </div>
+            ${adminBtnHtml}
+          `;
+        }
+      }
+
+      // =========================================================================
+      // 7. ILUSTRAÇÕES DE ESTÚDIO DOS PRODUTOS
+      // =========================================================================
+      function getProductStudioSVG(artType, selectedVariant, productId) {
+        const variantStr = String(selectedVariant || '').toLowerCase();
+        const uid = String(productId || artType || 'item').replace(/[^a-zA-Z0-9_-]/g, '');
+        const studioGradId = 'studioGrad-' + uid;
+        const podiumGradId = 'podiumGrad-' + uid;
+
+        const stageBackdrop = `
+          <defs>
+            <radialGradient id="${studioGradId}" cx="50%" cy="38%" r="68%">
+              <stop offset="0%" stop-color="#FFFFFF" />
+              <stop offset="58%" stop-color="#F6EBF0" />
+              <stop offset="100%" stop-color="#E7D2DD" />
+            </radialGradient>
+            <linearGradient id="${podiumGradId}" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#5E2044" />
+              <stop offset="55%" stop-color="#471633" />
+              <stop offset="100%" stop-color="#240A19" />
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="360" height="360" fill="url(#${studioGradId})" />
+          <circle cx="180" cy="145" r="105" fill="#F3DFC1" fill-opacity="0.25" />
+          <path d="M-20 92 C 95 45, 225 130, 380 78 L380 360 L-20 360 Z" fill="#EBD7E2" fill-opacity="0.62" />
+          <path d="M-20 198 C 110 155, 240 225, 380 175 L380 360 L-20 360 Z" fill="#DFC3D2" fill-opacity="0.52" />
+          <path d="M-20 130 C 100 95, 230 165, 380 115" fill="none" stroke="#D4AF7A" stroke-opacity="0.4" stroke-width="1.5" />
+          <rect x="0" y="294" width="360" height="66" fill="#240A19" />
+          <rect x="44" y="268" width="272" height="92" rx="22" fill="url(#${podiumGradId})" />
+          <rect x="44" y="268" width="272" height="92" rx="22" fill="none" stroke="#D4AF7A" stroke-opacity="0.5" stroke-width="1.4" />
+          <ellipse cx="180" cy="268" rx="136" ry="20" fill="#632248" stroke="#F3DFC1" stroke-opacity="0.65" stroke-width="1.3" />
+          <ellipse cx="180" cy="268" rx="95" ry="11" fill="#240A19" fill-opacity="0.35" />
+        `;
+
+        let illustration = '';
+
+        switch (artType) {
+          case 'love-rain-gloss': {
+            const liquidColor = variantStr.indexOf('berry') !== -1 ? '#9E2A63' : '#DF6E98';
+            illustration = `
+              <ellipse cx="180" cy="266" rx="34" ry="7" fill="#1A0512" opacity="0.4" />
+              <rect x="158" y="64" width="44" height="54" rx="8" fill="#E6E1E8" stroke="#B7AFB9" stroke-width="1.5" />
+              <rect x="158" y="108" width="44" height="8" fill="#D4AF7A" />
+              <rect x="155" y="116" width="50" height="148" rx="14" fill="#FFFFFF" fill-opacity="0.55" stroke="#D8C4CE" stroke-width="2" />
+              <rect x="160" y="122" width="40" height="136" rx="11" fill="${liquidColor}" />
+              <line x1="180" y1="122" x2="180" y2="230" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="2.5" />
+              <path d="M174 230 L186 230 L184 246 L176 246 Z" fill="#F8E7EE" />
+              <rect x="163" y="156" width="34" height="44" rx="6" fill="#471633" fill-opacity="0.88" />
+              <text x="180" y="176" text-anchor="middle" font-family="Georgia, serif" font-size="9.5" font-weight="bold" fill="#F3DFC1">LOVE</text>
+              <text x="180" y="188" text-anchor="middle" font-family="Georgia, serif" font-size="9.5" font-weight="bold" fill="#FFFFFF">RAIN</text>
+              <line x1="166" y1="128" x2="166" y2="250" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="3" stroke-linecap="round" />
+            `;
+            break;
+          }
+
+          case 'melu-gel-scrub': {
+            illustration = `
+              <ellipse cx="180" cy="266" rx="66" ry="10" fill="#1A0512" opacity="0.42" />
+              <rect x="122" y="164" width="116" height="100" rx="20" fill="#F7DCE7" stroke="#D5A6BB" stroke-width="2" />
+              <rect x="126" y="170" width="108" height="88" rx="16" fill="#E89CB9" />
+              <circle cx="148" cy="196" r="2.2" fill="#471633" opacity="0.45" />
+              <circle cx="212" cy="204" r="2.5" fill="#471633" opacity="0.45" />
+              <circle cx="154" cy="236" r="2" fill="#FFFFFF" opacity="0.7" />
+              <circle cx="206" cy="232" r="2.2" fill="#FFFFFF" opacity="0.7" />
+              <rect x="118" y="138" width="124" height="30" rx="10" fill="#471633" stroke="#D4AF7A" stroke-width="1.4" />
+              <rect x="142" y="186" width="76" height="52" rx="10" fill="#FFFFFF" fill-opacity="0.94" />
+              <text x="180" y="209" text-anchor="middle" font-family="Georgia, serif" font-size="15" font-weight="bold" fill="#471633">MELU</text>
+              <text x="180" y="224" text-anchor="middle" font-family="sans-serif" font-size="7.5" font-weight="bold" letter-spacing="1" fill="#9D6482">GEL ESFOLIANTE</text>
+            `;
+            break;
+          }
+
+          case 'makeup-wipes': {
+            illustration = `
+              <ellipse cx="180" cy="266" rx="82" ry="10" fill="#1A0512" opacity="0.38" />
+              <g transform="translate(180, 200) rotate(-6)">
+                <rect x="-86" y="-54" width="172" height="108" rx="22" fill="#F4C7D8" stroke="#D998B2" stroke-width="2" />
+                <rect x="-74" y="-44" width="148" height="88" rx="16" fill="#FCE8F0" />
+                <ellipse cx="0" cy="-6" rx="44" ry="24" fill="#471633" stroke="#D4AF7A" stroke-width="1.5" />
+                <ellipse cx="0" cy="-6" rx="34" ry="16" fill="#632248" />
+                <text x="0" y="32" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#471633">LENÇO DEMAQUILANTE</text>
+              </g>
+            `;
+            break;
+          }
+
+          case 'berry-body-scrub': {
+            illustration = `
+              <ellipse cx="180" cy="266" rx="70" ry="10" fill="#1A0512" opacity="0.42" />
+              <rect x="116" y="156" width="128" height="108" rx="22" fill="#F7D4E1" stroke="#CFA1B4" stroke-width="2" />
+              <rect x="122" y="164" width="116" height="94" rx="18" fill="#E382A6" />
+              <circle cx="142" cy="190" r="3" fill="#471633" opacity="0.55" />
+              <circle cx="216" cy="195" r="2.5" fill="#471633" opacity="0.55" />
+              <circle cx="146" cy="235" r="2.5" fill="#471633" opacity="0.55" />
+              <circle cx="214" cy="238" r="3" fill="#471633" opacity="0.55" />
+              <rect x="112" y="128" width="136" height="32" rx="11" fill="#471633" stroke="#D4AF7A" stroke-width="1.5" />
+              <rect x="138" y="182" width="84" height="58" rx="12" fill="#FFFFFF" stroke="#D4AF7A" stroke-width="1.5" />
+              <text x="180" y="206" text-anchor="middle" font-family="Georgia, serif" font-size="15" font-weight="bold" fill="#471633">MELUA</text>
+              <text x="180" y="220" text-anchor="middle" font-family="sans-serif" font-size="8.5" font-weight="bold" letter-spacing="1.4" fill="#9D6482">BERRY SCRUB</text>
+              <text x="180" y="232" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#5D3C4E">250g</text>
+            `;
+            break;
+          }
+
+          case 'banana-powder': {
+            illustration = `
+              <ellipse cx="180" cy="266" rx="68" ry="10" fill="#1A0512" opacity="0.4" />
+              <g transform="translate(180, 178) rotate(-8)">
+                <circle cx="0" cy="0" r="76" fill="#FACC15" stroke="#CA8A04" stroke-width="3.5" />
+                <circle cx="0" cy="0" r="65" fill="#FEF08A" stroke="#EAB308" stroke-width="1.5" />
+                <path d="M-34 -34 Q-20 -44 -10 -30" fill="none" stroke="#854D0E" stroke-width="3" stroke-linecap="round" />
+                <path d="M18 -38 Q34 -34 32 -18" fill="none" stroke="#854D0E" stroke-width="3" stroke-linecap="round" />
+                <path d="M-36 26 Q-24 42 -8 34" fill="none" stroke="#854D0E" stroke-width="3" stroke-linecap="round" />
+                <text x="0" y="-2" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="900" fill="#240A19">PÓ BANANA</text>
+                <text x="0" y="16" text-anchor="middle" font-family="sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5" fill="#713F12">FENZZA • 15g</text>
+              </g>
+            `;
+            break;
+          }
+
+          case 'pet-gloss': {
+            illustration = `
+              <ellipse cx="180" cy="266" rx="32" ry="7" fill="#1A0512" opacity="0.38" />
+              <rect x="163" y="128" width="34" height="136" rx="14" fill="#D9729B" stroke="#9D3B64" stroke-width="2" />
+              <rect x="169" y="136" width="7" height="118" rx="3.5" fill="#FFFFFF" opacity="0.4" />
+              <text x="180" y="218" text-anchor="middle" transform="rotate(-90 180 218)" font-family="sans-serif" font-size="10" font-weight="bold" letter-spacing="1.5" fill="#FFFFFF">MEU PET GLOSS</text>
+              <rect x="161" y="92" width="38" height="38" rx="7" fill="#FDE047" stroke="#EAB308" stroke-width="1.5" />
+              <ellipse cx="171" cy="64" rx="5.5" ry="15" fill="#FFFFFF" stroke="#E5D5DC" stroke-width="1.5" />
+              <ellipse cx="189" cy="64" rx="5.5" ry="15" fill="#FFFFFF" stroke="#E5D5DC" stroke-width="1.5" />
+              <ellipse cx="171" cy="64" rx="2.5" ry="10" fill="#F472B6" />
+              <ellipse cx="189" cy="64" rx="2.5" ry="10" fill="#F472B6" />
+              <circle cx="180" cy="80" r="15" fill="#FFFFFF" stroke="#E5D5DC" stroke-width="1.5" />
+              <circle cx="175" cy="78" r="2" fill="#240A19" />
+              <circle cx="185" cy="78" r="2" fill="#240A19" />
+              <circle cx="180" cy="83" r="2" fill="#EC4899" />
+            `;
+            break;
+          }
+
+          case 'cocoa-butter': {
+            const tubes = [
+              { x: 112, body: '#EC4899', label: 'TUTTI' },
+              { x: 148, body: '#EF4444', label: 'MELANCIA' },
+              { x: 184, body: '#10B981', label: 'MENTA' },
+              { x: 220, body: '#D97706', label: 'COCO' }
+            ];
+            const tubesMarkup = tubes
+              .map(function (t) {
+                return `
+                  <rect x="${t.x}" y="114" width="28" height="30" rx="5" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" />
+                  <rect x="${t.x}" y="142" width="28" height="122" rx="4" fill="${t.body}" />
+                  <rect x="${t.x}" y="246" width="28" height="18" rx="3" fill="#471633" />
+                  <text x="${t.x + 14}" y="200" text-anchor="middle" transform="rotate(-90 ${t.x + 14} 200)" font-family="sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">${t.label}</text>
+                `;
+              })
+              .join('');
+            illustration = `
+              <ellipse cx="180" cy="266" rx="76" ry="10" fill="#1A0512" opacity="0.38" />
+              ${tubesMarkup}
+            `;
+            break;
+          }
+
+          case 'pocket-mirror': {
+            let mainFill = '#F3DFC1';
+            let mainStroke = '#B4884E';
+            if (variantStr.indexOf('roxo') !== -1) {
+              mainFill = '#7E22CE';
+              mainStroke = '#581C87';
+            } else if (variantStr.indexOf('prata') !== -1) {
+              mainFill = '#E2E8F0';
+              mainStroke = '#64748B';
+            }
+            illustration = `
+              <ellipse cx="180" cy="266" rx="74" ry="10" fill="#1A0512" opacity="0.38" />
+              <g transform="translate(150, 186) rotate(-14)">
+                <rect x="-46" y="-46" width="92" height="92" rx="22" fill="${mainFill}" stroke="${mainStroke}" stroke-width="3" />
+                <rect x="-34" y="-34" width="68" height="68" rx="15" fill="#FFFFFF" fill-opacity="0.28" />
+              </g>
+              <g transform="translate(212, 206) rotate(12)">
+                <rect x="-42" y="-42" width="84" height="84" rx="20" fill="#471633" stroke="#D4AF7A" stroke-width="2.5" />
+                <text x="0" y="5" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#F3DFC1">MELUA</text>
+              </g>
+            `;
+            break;
+          }
+
+          case 'sport-gloss': {
+            illustration = `
+              <ellipse cx="180" cy="266" rx="56" ry="9" fill="#1A0512" opacity="0.38" />
+              <rect x="134" y="138" width="44" height="126" rx="12" fill="#FFFFFF" fill-opacity="0.72" stroke="#CBD5E1" stroke-width="2" />
+              <rect x="138" y="144" width="36" height="114" rx="9" fill="#FCE7F3" />
+              <rect x="136" y="102" width="40" height="38" rx="8" fill="#65A30D" />
+              <circle cx="156" cy="84" r="14" fill="none" stroke="#94A3B8" stroke-width="3" />
+              <path d="M168 92 L206 136" stroke="#94A3B8" stroke-width="2.5" />
+              <circle cx="212" cy="154" r="22" fill="#FFFFFF" stroke="#1E293B" stroke-width="2" />
+              <polygon points="212,144 220,150 217,160 207,160 204,150" fill="#1E293B" />
+              <rect x="190" y="188" width="42" height="22" rx="11" fill="#65A30D" />
+            `;
+            break;
+          }
+
+          case 'lip-bunny': {
+            illustration = `
+              <ellipse cx="180" cy="266" rx="64" ry="10" fill="#1A0512" opacity="0.42" />
+              <rect x="122" y="96" width="116" height="168" rx="12" fill="#4A2511" stroke="#78350F" stroke-width="2" />
+              <rect x="132" y="108" width="96" height="22" rx="4" fill="#FDE68A" />
+              <text x="180" y="123" text-anchor="middle" font-family="sans-serif" font-size="12.5" font-weight="900" fill="#451A03">LIP BUNNY</text>
+              <rect x="144" y="140" width="72" height="106" rx="34" fill="#291206" stroke="#D97706" stroke-width="1.5" />
+              <rect x="165" y="176" width="30" height="62" rx="9" fill="#92400E" />
+              <rect x="167" y="154" width="26" height="22" rx="4" fill="#D97706" />
+            `;
+            break;
+          }
+
+          default: {
+            illustration = `
+              <ellipse cx="180" cy="266" rx="54" ry="9" fill="#1A0512" opacity="0.38" />
+              <g transform="translate(154, 174) rotate(-8)">
+                <rect x="-6" y="-26" width="12" height="114" rx="6" fill="#F3DFC1" stroke="#D4AF7A" stroke-width="1.2" />
+                <rect x="-6" y="-44" width="12" height="20" fill="#D4AF7A" />
+                <path d="M-7 -44 C-11 -74 11 -74 7 -44 Z" fill="#5E2044" />
+              </g>
+              <g transform="translate(204, 174) rotate(7)">
+                <rect x="-7" y="-22" width="14" height="110" rx="7" fill="#F3DFC1" stroke="#D4AF7A" stroke-width="1.2" />
+                <rect x="-7" y="-42" width="14" height="22" fill="#D4AF7A" />
+                <path d="M-9 -42 C-15 -78 15 -78 9 -42 Z" fill="#471633" />
+              </g>
+            `;
+            break;
+          }
+        }
+
+        return `
+          <svg viewBox="0 0 360 360" preserveAspectRatio="xMidYMid slice" class="w-full h-full block" xmlns="http://www.w3.org/2000/svg">
+            ${stageBackdrop}
+            ${illustration}
+          </svg>
+        `;
+      }
+
+      // =========================================================================
+      // 8. FILTROS, PAGINAÇÃO E VITRINE DE PRODUTOS
+      // =========================================================================
+      function renderCategoryFilters() {
+        const container = document.getElementById('categoryFilters');
+        if (!container) return;
+
+        const filters = ['Todos', 'Maquiagem', 'Skincare', 'Acessórios', 'Promoções'];
+        container.innerHTML = filters
+          .map(function (filterName) {
+            const active = state.selectedFilter === filterName;
+            const classes = active
+              ? 'bg-melua-plum text-white border-melua-plum shadow-xs'
+              : 'bg-white text-melua-ink border-melua-border hover:bg-melua-blushSoft';
+            return `
+              <button
+                type="button"
+                data-action="filter-category"
+                data-filter="${filterName}"
+                class="px-4 py-2 rounded-full border text-xs font-bold whitespace-nowrap transition-all ${classes}"
+              >
+                ${filterName === 'Promoções' ? 'Promoções ♡' : filterName}
+              </button>
+            `;
+          })
+          .join('');
+      }
+
+      function getFilteredProducts() {
+        const query = state.searchQuery.trim().toLowerCase();
+        return state.products.filter(function (p) {
+          if (state.selectedFilter === 'Promoções' && !p.promo) return false;
+          if (
+            state.selectedFilter !== 'Todos' &&
+            state.selectedFilter !== 'Promoções' &&
+            p.category !== state.selectedFilter
+          ) {
+            return false;
+          }
+          if (query) {
+            const haystack = (p.name + ' ' + p.category + ' ' + p.description).toLowerCase();
+            if (haystack.indexOf(query) === -1) return false;
+          }
+          return true;
+        });
+      }
+
+      function renderPagination(totalItems, totalPages, currentPage) {
+        const container = document.getElementById('productPagination');
+        if (!container) return;
+
+        if (totalItems === 0 || totalPages <= 1) {
+          container.innerHTML = '';
+          return;
+        }
+
+        const prevDisabled = currentPage <= 1;
+        const nextDisabled = currentPage >= totalPages;
+
+        let pageButtons = '';
+        for (let p = 1; p <= totalPages; p += 1) {
+          const isCurrent = p === currentPage;
+          const btnClass = isCurrent
+            ? 'bg-melua-plum text-white border-melua-plum shadow-sm'
+            : 'bg-white hover:bg-melua-blushSoft text-melua-ink border-melua-border';
+          pageButtons += `
+            <button
+              type="button"
+              data-action="go-to-page"
+              data-page="${p}"
+              aria-label="Ir para página ${p}"
+              class="w-10 h-10 rounded-full border text-xs sm:text-sm font-bold transition-all ${btnClass}"
+            >
+              ${p}
+            </button>
+          `;
+        }
+
+        container.innerHTML = `
+          <div class="bg-white rounded-3xl border border-melua-border p-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-card">
+            <span class="text-xs font-semibold text-melua-body">
+              Página <strong class="text-melua-ink">${currentPage}</strong> de <strong class="text-melua-ink">${totalPages}</strong> (${totalItems} produtos)
+            </span>
+
+            <div class="flex flex-wrap items-center justify-center gap-2">
+              <button
+                type="button"
+                data-action="go-to-page"
+                data-page="${currentPage - 1}"
+                ${prevDisabled ? 'disabled' : ''}
+                class="px-4 py-2 rounded-full border border-melua-border text-xs font-bold transition-all ${
+                  prevDisabled
+                    ? 'bg-melua-bg text-melua-body/40 cursor-not-allowed'
+                    : 'bg-white hover:bg-melua-blushSoft text-melua-ink'
+                }"
+              >
+                ← Anterior
+              </button>
+
+              ${pageButtons}
+
+              <button
+                type="button"
+                data-action="go-to-page"
+                data-page="${currentPage + 1}"
+                ${nextDisabled ? 'disabled' : ''}
+                class="px-4 py-2 rounded-full border border-melua-border text-xs font-bold transition-all ${
+                  nextDisabled
+                    ? 'bg-melua-bg text-melua-body/40 cursor-not-allowed'
+                    : 'bg-white hover:bg-melua-blushSoft text-melua-ink'
+                }"
+              >
+                Próxima →
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderProductGrid() {
+        const grid = document.getElementById('productGrid');
+        const emptyState = document.getElementById('emptySearchState');
+        const countLabel = document.getElementById('productCountLabel');
+        if (!grid) return;
+
+        const filtered = getFilteredProducts();
+        const totalItems = filtered.length;
+        const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
+
+        if (state.currentPage > totalPages) state.currentPage = totalPages;
+        if (state.currentPage < 1) state.currentPage = 1;
+
+        if (totalItems === 0) {
+          grid.innerHTML = '';
+          if (emptyState) emptyState.classList.remove('hidden');
+          if (countLabel) countLabel.textContent = 'Mostrando 0 de 0 produtos';
+          renderPagination(0, 1, 1);
+          return;
+        }
+
+        if (emptyState) emptyState.classList.add('hidden');
+
+        const startIdx = (state.currentPage - 1) * PAGE_SIZE;
+        const endIdx = Math.min(startIdx + PAGE_SIZE, totalItems);
+        const pageItems = filtered.slice(startIdx, endIdx);
+
+        if (countLabel) {
+          countLabel.textContent =
+            'Mostrando ' +
+            (startIdx + 1) +
+            '–' +
+            endIdx +
+            ' de ' +
+            totalItems +
+            ' produtos • Página ' +
+            state.currentPage +
+            ' de ' +
+            totalPages;
+        }
+
+        grid.innerHTML = pageItems
+          .map(function (prod) {
+            const selectedVariant = state.selectedVariants[prod.id] || prod.variants[0];
+
+            const visualMedia = prod.customImage
+              ? `<img src="${prod.customImage}" alt="${prod.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />`
+              : `<div class="w-full h-full group-hover:scale-105 transition-transform duration-500">${getProductStudioSVG(
+                  prod.artType,
+                  selectedVariant,
+                  prod.id
+                )}</div>`;
+
+            const variantPills =
+              prod.variants.length > 1
+                ? `<div class="flex flex-wrap gap-1 pt-1">
+                    ${prod.variants
+                      .map(function (v) {
+                        const isSel = v === selectedVariant;
+                        return `
+                          <button
+                            type="button"
+                            data-action="select-variant"
+                            data-id="${prod.id}"
+                            data-variant="${v}"
+                            class="px-2 py-0.5 rounded-full text-[10px] font-bold border transition-all ${
+                              isSel
+                                ? 'bg-melua-plum text-white border-melua-plum'
+                                : 'bg-melua-bg text-melua-ink border-melua-border hover:border-melua-plum'
+                            }"
+                          >
+                            ${v}
+                          </button>
+                        `;
+                      })
+                      .join('')}
+                  </div>`
+                : `<p class="text-[11px] text-melua-body font-medium">${selectedVariant}</p>`;
+
+            const adminQuickEditBtn = state.isAdminLoggedIn
+              ? `<button
+                  type="button"
+                  data-action="quick-edit-product"
+                  data-id="${prod.id}"
+                  class="absolute bottom-2.5 right-2.5 z-10 px-3 py-1.5 rounded-full bg-white/95 hover:bg-melua-goldLight text-melua-ink border border-melua-gold text-[11px] font-bold shadow-md"
+                >
+                  ✏️ Editar
+                </button>`
+              : '';
+
+            return `
+              <article class="group bg-white rounded-3xl border border-melua-border shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col overflow-hidden">
+                <div class="relative aspect-square overflow-hidden bg-melua-blushSoft">
+                  ${visualMedia}
+
+                  <div class="absolute top-2.5 left-2.5 flex flex-wrap gap-1">
+                    <span class="px-2.5 py-1 rounded-full bg-white/95 text-melua-ink text-[10px] font-bold shadow-xs border border-melua-border">
+                      Pronta Entrega
+                    </span>
+                    ${
+                      prod.promo
+                        ? `<span class="px-2.5 py-1 rounded-full bg-melua-plum text-melua-goldLight text-[10px] font-bold shadow-xs">
+                            Oferta ♡
+                          </span>`
+                        : ''
+                    }
+                  </div>
+
+                  ${adminQuickEditBtn}
+                </div>
+
+                <div class="p-3.5 sm:p-5 flex-1 flex flex-col justify-between gap-3">
+                  <div class="space-y-1.5">
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-melua-mauve">
+                      ${prod.category}
+                    </span>
+                    <h3 class="font-editorial text-lg sm:text-xl font-bold text-melua-ink leading-snug">
+                      ${prod.name}
+                    </h3>
+                    <p class="hidden sm:block text-xs text-melua-body line-clamp-2 leading-relaxed">
+                      ${prod.description}
+                    </p>
+                    ${variantPills}
+                  </div>
+
+                  <div class="pt-2 border-t border-melua-border/80 space-y-2.5">
+                    <div class="flex items-baseline gap-2 flex-wrap">
+                      <span class="text-base sm:text-lg font-bold text-melua-plum">
+                        ${formatBRL(prod.price)}
+                      </span>
+                      ${
+                        prod.oldPrice
+                          ? `<span class="text-xs text-melua-body/65 line-through">
+                              ${formatBRL(prod.oldPrice)}
+                            </span>`
+                          : ''
+                      }
+                    </div>
+
+                    <button
+                      type="button"
+                      data-action="add-to-cart"
+                      data-id="${prod.id}"
+                      class="w-full py-2.5 px-3 rounded-full bg-melua-plum hover:bg-melua-plumMid text-white text-xs font-bold shadow-xs transition-all active:scale-95 flex items-center justify-center gap-1.5"
+                    >
+                      <span>+ Adicionar</span>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            `;
+          })
+          .join('');
+
+        renderPagination(totalItems, totalPages, state.currentPage);
+      }
+
+      // =========================================================================
+      // 9. SACOLA, CHECKOUT WHATSAPP E COMPROVANTE DIGITAL
+      // =========================================================================
+      function saveCart() {
+        safeStorage.set(STORAGE_KEYS.CART, state.cart);
+      }
+
+      function addToCart(productId) {
+        const prod = state.products.find(function (p) {
+          return p.id === productId;
+        });
+        if (!prod) return;
+
+        const variant = state.selectedVariants[prod.id] || prod.variants[0] || 'Padrão';
+        const key = prod.id + '::' + variant;
+
+        const existing = state.cart.find(function (item) {
+          return item.key === key;
+        });
+
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          state.cart.push({
+            key: key,
+            productId: prod.id,
+            name: prod.name,
+            variant: variant,
+            price: prod.price,
+            qty: 1
+          });
+        }
+
+        saveCart();
+        renderCart();
+        showToast('"' + prod.name + '" adicionado à sacola!');
+      }
+
+      function updateCartQty(key, delta) {
+        const idx = state.cart.findIndex(function (item) {
+          return item.key === key;
+        });
+        if (idx === -1) return;
+
+        state.cart[idx].qty += delta;
+        if (state.cart[idx].qty <= 0) {
+          state.cart.splice(idx, 1);
+        }
+
+        saveCart();
+        renderCart();
+      }
+
+      function removeCartItem(key) {
+        state.cart = state.cart.filter(function (item) {
+          return item.key !== key;
+        });
+        saveCart();
+        renderCart();
+      }
+
+      function renderCart() {
+        const badge = document.getElementById('cartCountBadge');
+        const itemsContainer = document.getElementById('cartItemsContainer');
+        const checkoutSection = document.getElementById('checkoutFormSection');
+        const footerSection = document.getElementById('cartFooterSection');
+        const subtotalEl = document.getElementById('cartSubtotalDisplay');
+
+        const totalQty = state.cart.reduce(function (acc, item) {
+          return acc + item.qty;
+        }, 0);
+        const subtotal = state.cart.reduce(function (acc, item) {
+          return acc + item.price * item.qty;
+        }, 0);
+
+        if (badge) badge.textContent = String(totalQty);
+        if (subtotalEl) subtotalEl.textContent = formatBRL(subtotal);
+
+        if (!itemsContainer) return;
+
+        if (state.cart.length === 0) {
+          itemsContainer.innerHTML = `
+            <div class="bg-white rounded-3xl p-8 border border-melua-border text-center space-y-3">
+              <div class="w-14 h-14 rounded-full bg-melua-blushSoft text-melua-plum mx-auto flex items-center justify-center text-2xl">
+                🛍️
+              </div>
+              <h3 class="font-editorial text-2xl font-bold text-melua-ink">Sua sacola está vazia</h3>
+              <p class="text-xs text-melua-body">
+                Escolha seus favoritos à pronta entrega na vitrine e finalize seu pedido direto no WhatsApp.
+              </p>
+              <button
+                type="button"
+                data-action="close-cart"
+                class="mt-2 px-6 py-2.5 rounded-full bg-melua-plum text-white text-xs font-bold"
+              >
+                Explorar Vitrine
+              </button>
+            </div>
+          `;
+          if (checkoutSection) checkoutSection.classList.add('hidden');
+          if (footerSection) footerSection.classList.add('hidden');
+          return;
+        }
+
+        if (checkoutSection) checkoutSection.classList.remove('hidden');
+        if (footerSection) footerSection.classList.remove('hidden');
+
+        itemsContainer.innerHTML = state.cart
+          .map(function (item) {
+            return `
+              <div class="bg-white rounded-2xl p-3.5 border border-melua-border flex items-center justify-between gap-3">
+                <div class="min-w-0">
+                  <h4 class="font-bold text-sm text-melua-ink truncate">${item.name}</h4>
+                  <p class="text-xs text-melua-body">${item.variant} • ${formatBRL(item.price)} un.</p>
+                </div>
+
+                <div class="flex items-center gap-2 shrink-0">
+                  <div class="flex items-center rounded-full bg-melua-bg border border-melua-border">
+                    <button
+                      type="button"
+                      data-action="cart-qty"
+                      data-key="${item.key}"
+                      data-delta="-1"
+                      class="w-7 h-7 flex items-center justify-center font-bold text-melua-ink"
+                      aria-label="Diminuir quantidade"
+                    >
+                      −
+                    </button>
+                    <span class="px-2 text-xs font-bold text-melua-ink">${item.qty}</span>
+                    <button
+                      type="button"
+                      data-action="cart-qty"
+                      data-key="${item.key}"
+                      data-delta="1"
+                      class="w-7 h-7 flex items-center justify-center font-bold text-melua-ink"
+                      aria-label="Aumentar quantidade"
+                    >
+                      +
+                    </button>
+                  </div>
+
+                  <button
+                    type="button"
+                    data-action="cart-remove"
+                    data-key="${item.key}"
+                    class="p-1.5 rounded-full text-rose-700 hover:bg-rose-50 text-xs font-bold"
+                    title="Remover item"
+                  >
+                    ✕
+                  </button>
+                </div>
+              </div>
+            `;
+          })
+          .join('');
+      }
+
+      function toggleDeliveryAddressInput() {
+        const selected = document.querySelector('input[name="deliveryMethod"]:checked');
+        const box = document.getElementById('deliveryAddressBox');
+        if (!box || !selected) return;
+        if (selected.value === 'uber_99_moto') {
+          box.classList.remove('hidden');
+        } else {
+          box.classList.add('hidden');
+        }
+      }
+
+      async function finalizeWhatsAppOrder() {
+        if (state.cart.length === 0) return;
+
+        const nameInput = document.getElementById('customerNameInput');
+        const addressInput = document.getElementById('customerAddressInput');
+        const deliveryRadio = document.querySelector('input[name="deliveryMethod"]:checked');
+        const paymentRadio = document.querySelector('input[name="paymentMethod"]:checked');
+
+        const customerName = nameInput ? nameInput.value.trim() : '';
+        if (!customerName) {
+          showToast('Por favor, informe seu nome para continuar.');
+          if (nameInput) nameInput.focus();
+          return;
+        }
+
+        const deliveryType = deliveryRadio ? deliveryRadio.value : 'uber_99_moto';
+        const customerAddress = addressInput ? addressInput.value.trim() : '';
+        const paymentMethod = paymentRadio ? paymentRadio.value : 'Pix';
+
+        const subtotal = state.cart.reduce(function (acc, item) {
+          return acc + item.price * item.qty;
+        }, 0);
+
+        const orderCode = 'ML-' + Math.floor(1000 + Math.random() * 9000);
+        const nowStr = new Date().toLocaleString('pt-BR', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+
+        const deliveryLabel =
+          deliveryType === 'uber_99_moto'
+            ? 'Suporte Uber Moto / 99 Moto Entrega'
+            : 'Retirada / Combinar pelo WhatsApp';
+
+        const newOrder = {
+          id: orderCode,
+          date: nowStr,
+          customerName: customerName,
+          deliveryLabel: deliveryLabel,
+          address: customerAddress,
+          paymentMethod: paymentMethod,
+          items: state.cart.map(function (i) {
+            return Object.assign({}, i);
+          }),
+          total: subtotal,
+          status: 'Novo'
+        };
+
+        state.orders.unshift(newOrder);
+        await saveGlobalStoreToCloud(true);
+
+        const itemsLines = newOrder.items
+          .map(function (item) {
+            return '• ' + item.qty + 'x ' + item.name + ' (' + item.variant + ') — ' + formatBRL(item.price * item.qty);
+          })
+          .join('\n');
+
+        const whatsappMessage = [
+          '✨ *NOVO PEDIDO — MELUA COSMÉTICOS (@melua.br)* ✨',
+          '*Pedido:* #' + newOrder.id,
+          '*Cliente:* ' + newOrder.customerName,
+          '',
+          '*Itens Selecionados (Pronta Entrega):*',
+          itemsLines,
+          '',
+          '*Subtotal dos Produtos:* ' + formatBRL(newOrder.total),
+          '*Entrega:* ' + newOrder.deliveryLabel,
+          newOrder.address ? '*Bairro/Endereço:* ' + newOrder.address : '',
+          '*Pagamento:* ' + newOrder.paymentMethod,
+          '',
+          'Olá Melua! Gostaria de confirmar meu pedido acima. ♡'
+        ]
+          .filter(Boolean)
+          .join('\n');
+
+        state.lastReceiptText = whatsappMessage;
+        const waUrl = buildWhatsAppUrl(whatsappMessage);
+
+        state.cart = [];
+        saveCart();
+        renderCart();
+        closeCartDrawer();
+
+        const receiptContent = document.getElementById('receiptContent');
+        const directLink = document.getElementById('receiptWhatsappDirectLink');
+        if (directLink) directLink.href = waUrl;
+
+        if (receiptContent) {
+          receiptContent.innerHTML = `
+            <div class="p-4 rounded-2xl bg-melua-bg border border-melua-border space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-melua-ink">Pedido #${newOrder.id}</span>
+                <span class="text-xs text-melua-body">${newOrder.date}</span>
+              </div>
+              <p class="text-xs text-melua-body"><strong>Cliente:</strong> ${newOrder.customerName}</p>
+              <p class="text-xs text-melua-body"><strong>Entrega:</strong> ${newOrder.deliveryLabel}</p>
+              ${newOrder.address ? `<p class="text-xs text-melua-body"><strong>Endereço:</strong> ${newOrder.address}</p>` : ''}
+              <p class="text-xs text-melua-body"><strong>Pagamento:</strong> ${newOrder.paymentMethod}</p>
+            </div>
+
+            <div class="space-y-1.5">
+              <p class="text-xs font-bold uppercase tracking-wider text-melua-mauve">Itens do Pedido</p>
+              ${newOrder.items
+                .map(function (i) {
+                  return `<div class="flex justify-between text-xs py-1 border-b border-melua-border/60">
+                    <span>${i.qty}x ${i.name} (${i.variant})</span>
+                    <span class="font-bold text-melua-ink">${formatBRL(i.price * i.qty)}</span>
+                  </div>`;
+                })
+                .join('')}
+            </div>
+
+            <div class="flex items-center justify-between pt-2 text-base font-bold text-melua-ink">
+              <span>Total dos Produtos</span>
+              <span class="text-melua-plum text-lg">${formatBRL(newOrder.total)}</span>
+            </div>
+          `;
+        }
+
+        const receiptModal = document.getElementById('receiptModal');
+        if (receiptModal) {
+          receiptModal.classList.remove('hidden');
+          receiptModal.classList.add('flex');
+        }
+
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+      }
+
+      // =========================================================================
+      // 10. ÁREA DA LOJISTA PROTEGIDA POR SENHA E PAINEL COMPLETO
+      // =========================================================================
+      function syncAdminModeUI() {
+        const topBar = document.getElementById('loggedAdminTopBar');
+        if (topBar) {
+          if (state.isAdminLoggedIn) {
+            topBar.classList.remove('hidden');
+          } else {
+            topBar.classList.add('hidden');
+          }
+        }
+        updateCloudStatusBadges();
+        renderHeroCardMedia();
+        renderProductGrid();
+      }
+
+      function triggerAdminAccess() {
+        if (state.isAdminLoggedIn) {
+          openAdminPanel();
+          return;
+        }
+        const modal = document.getElementById('adminLoginModal');
+        const pwInput = document.getElementById('adminPasswordInput');
+        const errEl = document.getElementById('adminLoginError');
+        if (errEl) errEl.classList.add('hidden');
+        if (pwInput) {
+          pwInput.type = 'password';
+          pwInput.value = '';
+        }
+        if (modal) {
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+          window.setTimeout(function () {
+            if (pwInput) pwInput.focus();
+          }, 80);
+        }
+      }
+
+      function closeAdminLogin() {
+        const modal = document.getElementById('adminLoginModal');
+        if (modal) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        }
+      }
+
+      function submitAdminLogin() {
+        const pwInput = document.getElementById('adminPasswordInput');
+        const errEl = document.getElementById('adminLoginError');
+        const typed = pwInput ? pwInput.value.trim() : '';
+        const currentPassword = String(safeStorage.get(STORAGE_KEYS.PASSWORD, DEFAULTS.password));
+
+        if (typed === currentPassword) {
+          state.isAdminLoggedIn = true;
+          closeAdminLogin();
+          syncAdminModeUI();
+          openAdminPanel();
+          showToast('Bem-vinda ao Painel Melua Cosméticos!');
+        } else if (errEl) {
+          errEl.classList.remove('hidden');
+        }
+      }
+
+      function logoutAdmin() {
+        state.isAdminLoggedIn = false;
+        closeAdminPanel();
+        syncAdminModeUI();
+        showToast('Sessão da lojista encerrada com segurança.');
+      }
+
+      function openAdminPanel() {
+        const panel = document.getElementById('adminPanelModal');
+        if (panel) panel.classList.remove('hidden');
+        updateCloudStatusBadges();
+        renderAdminTabContent();
+      }
+
+      function closeAdminPanel() {
+        const panel = document.getElementById('adminPanelModal');
+        if (panel) panel.classList.add('hidden');
+      }
+
+      function renderAdminTabContent() {
+        const container = document.getElementById('adminTabContent');
+        if (!container) return;
+
+        document.querySelectorAll('.admin-tab-btn').forEach(function (btn) {
+          const isCurrent = btn.dataset.tab === state.activeAdminTab;
+          btn.className =
+            'admin-tab-btn px-3.5 py-3 text-xs sm:text-sm font-bold border-b-2 whitespace-nowrap transition-all ' +
+            (isCurrent
+              ? 'border-melua-plum text-melua-plum'
+              : 'border-transparent text-melua-body hover:text-melua-ink');
+        });
+
+        document.querySelectorAll('.top-admin-tab').forEach(function (btn) {
+          const isCurrent = btn.dataset.tab === state.activeAdminTab;
+          btn.className =
+            'top-admin-tab px-3 py-1.5 rounded-full text-xs font-bold transition-all ' +
+            (isCurrent
+              ? 'bg-white text-melua-ink'
+              : 'bg-white/10 hover:bg-white/20 text-white');
+        });
+
+        if (state.activeAdminTab === 'vitrine') {
+          container.innerHTML = `
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-melua-border text-center max-w-xl mx-auto space-y-4">
+              <span class="inline-block px-3.5 py-1 rounded-full bg-melua-blushSoft text-melua-plum text-xs font-bold">
+                Modo Edição na Vitrine Ativo
+              </span>
+              <h3 class="font-editorial text-3xl font-bold text-melua-ink">Edite direto na página inicial</h3>
+              <p class="text-sm text-melua-body leading-relaxed">
+                Enquanto estiver conectada, os botões <strong>"📸 Trocar Foto do Card"</strong> (no destaque principal) e <strong>"✏️ Editar"</strong> (em cada produto) ficam visíveis na loja. Todas as fotos e alterações são salvas globalmente para todos os clientes.
+              </p>
+              <button
+                type="button"
+                data-action="close-admin-panel"
+                class="px-7 py-3 rounded-full bg-melua-plum hover:bg-melua-plumMid text-white text-xs sm:text-sm font-bold"
+              >
+                Ir para a Vitrine Agora
+              </button>
+            </div>
+          `;
+          return;
+        }
+
+        if (state.activeAdminTab === 'pedidos') {
+          if (state.orders.length === 0) {
+            container.innerHTML = `
+              <div class="bg-white rounded-3xl p-8 border border-melua-border text-center max-w-lg mx-auto">
+                <h3 class="font-editorial text-2xl font-bold text-melua-ink">Nenhum pedido registrado ainda</h3>
+                <p class="text-xs text-melua-body mt-1">
+                  Assim que uma cliente finalizar a sacola no site, o pedido aparecerá aqui com todos os detalhes.
+                </p>
+              </div>
+            `;
+            return;
+          }
+
+          container.innerHTML = `
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <h3 class="font-editorial text-2xl font-bold text-melua-ink">Pedidos Recebidos (${state.orders.length})</h3>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                ${state.orders
+                  .map(function (ord) {
+                    const waText =
+                      'Olá ' +
+                      ord.customerName +
+                      '! Recebemos seu pedido #' +
+                      ord.id +
+                      ' da Melua Cosméticos (' +
+                      formatBRL(ord.total) +
+                      ').';
+                    const waLink = buildWhatsAppUrl(waText);
+
+                    return `
+                      <div class="bg-white rounded-2xl p-5 border border-melua-border shadow-card space-y-3">
+                        <div class="flex items-center justify-between gap-2">
+                          <div>
+                            <span class="font-bold text-sm text-melua-plum">#${ord.id}</span>
+                            <span class="text-xs text-melua-body ml-2">${ord.date}</span>
+                          </div>
+                          <select
+                            data-action="change-order-status"
+                            data-id="${ord.id}"
+                            class="px-3 py-1 rounded-full bg-melua-bg border border-melua-border text-xs font-bold text-melua-ink"
+                          >
+                            ${['Novo', 'Em Separação', 'Enviado', 'Concluído']
+                              .map(function (st) {
+                                return `<option value="${st}" ${ord.status === st ? 'selected' : ''}>${st}</option>`;
+                              })
+                              .join('')}
+                          </select>
+                        </div>
+
+                        <div class="text-xs text-melua-body space-y-1">
+                          <p><strong class="text-melua-ink">Cliente:</strong> ${ord.customerName}</p>
+                          <p><strong class="text-melua-ink">Entrega:</strong> ${ord.deliveryLabel}</p>
+                          ${ord.address ? `<p><strong class="text-melua-ink">Endereço:</strong> ${ord.address}</p>` : ''}
+                          <p><strong class="text-melua-ink">Pagamento:</strong> ${ord.paymentMethod}</p>
+                        </div>
+
+                        <div class="p-3 rounded-xl bg-melua-bg text-xs space-y-1">
+                          ${ord.items
+                            .map(function (i) {
+                              return `<div class="flex justify-between">
+                                <span>${i.qty}x ${i.name} (${i.variant})</span>
+                                <span class="font-bold">${formatBRL(i.price * i.qty)}</span>
+                              </div>`;
+                            })
+                            .join('')}
+                        </div>
+
+                        <div class="flex items-center justify-between pt-1">
+                          <span class="font-bold text-base text-melua-plum">${formatBRL(ord.total)}</span>
+                          <a
+                            href="${waLink}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="px-4 py-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold"
+                          >
+                            📲 Abrir no WhatsApp
+                          </a>
+                        </div>
+                      </div>
+                    `;
+                  })
+                  .join('')}
+              </div>
+            </div>
+          `;
+          return;
+        }
+
+        if (state.activeAdminTab === 'produtos') {
+          const editingProd = state.editingProductId
+            ? state.products.find(function (p) {
+                return p.id === state.editingProductId;
+              })
+            : null;
+
+          const previewImg = state.pendingUploadedImage || (editingProd ? editingProd.customImage : '');
+          const totalCatalogPages = Math.max(1, Math.ceil(state.products.length / PAGE_SIZE));
+
+          const addedBanner = state.lastAddedProductPage
+            ? `<div class="mb-5 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex flex-wrap items-center justify-between gap-3">
+                <p class="text-xs sm:text-sm font-bold text-emerald-950">
+                  ✨ Novo produto adicionado na <strong>Página ${state.lastAddedProductPage}</strong> da vitrine!
+                </p>
+                <button
+                  type="button"
+                  data-action="view-product-page-in-store"
+                  data-page="${state.lastAddedProductPage}"
+                  class="px-4 py-2 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold"
+                >
+                  Ver na Vitrine (Página ${state.lastAddedProductPage}) →
+                </button>
+              </div>`
+            : '';
+
+          container.innerHTML = `
+            ${addedBanner}
+
+            <div id="adminHeroPhotoSection" class="mb-6 bg-white rounded-3xl p-5 sm:p-6 border border-melua-gold/70 shadow-card flex flex-col sm:flex-row items-center justify-between gap-5">
+              <div class="flex items-center gap-4">
+                <div class="w-20 h-20 rounded-2xl overflow-hidden bg-melua-plum border border-melua-gold shrink-0 flex items-center justify-center">
+                  ${
+                    state.heroCardImage
+                      ? `<img src="${state.heroCardImage}" alt="Foto da Capa" class="w-full h-full object-cover" />`
+                      : `<span class="text-2xl">💄</span>`
+                  }
+                </div>
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-melua-mauve">Capa Inicial (#inicio)</span>
+                  <h3 class="font-editorial text-2xl font-bold text-melua-ink">Foto de Destaque do Card Hero</h3>
+                  <p class="text-xs text-melua-body mt-0.5">
+                    Salva automaticamente na nuvem e aparece para todos os clientes.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-2.5 w-full sm:w-auto justify-end">
+                <label class="cursor-pointer px-5 py-2.5 rounded-full bg-melua-plum hover:bg-melua-plumMid text-white text-xs font-bold shadow-xs">
+                  <span>📸 Escolher Foto</span>
+                  <input type="file" data-action="upload-hero-photo" accept="image/*" class="sr-only" />
+                </label>
+                ${
+                  state.heroCardImage
+                    ? `<button
+                        type="button"
+                        data-action="restore-default-hero-photo"
+                        class="px-4 py-2.5 rounded-full bg-melua-bg hover:bg-melua-blushSoft text-melua-ink border border-melua-border text-xs font-bold"
+                      >
+                        Restaurar Ilustração
+                      </button>`
+                    : ''
+                }
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+              <div id="adminProductFormCard" class="lg:col-span-5 bg-white rounded-3xl p-5 sm:p-6 border border-melua-border shadow-card">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="font-editorial text-2xl font-bold text-melua-ink">
+                    ${editingProd ? 'Editar Produto' : 'Novo Produto (Pronta Entrega)'}
+                  </h3>
+                  ${
+                    editingProd
+                      ? `<button type="button" data-action="cancel-edit-product" class="text-xs font-bold text-melua-mauve underline">Cancelar</button>`
+                      : ''
+                  }
+                </div>
+
+                <form data-action="submit-product-form" class="space-y-3.5 text-xs">
+                  <input type="hidden" id="editProdId" value="${editingProd ? editingProd.id : ''}" />
+
+                  <div>
+                    <label class="block text-xs font-bold text-melua-ink mb-1">Nome do Produto *</label>
+                    <input type="text" id="editProdName" required value="${editingProd ? editingProd.name : ''}" placeholder="Ex: Gloss Labial Melua Glow" class="w-full px-3.5 py-2 rounded-xl bg-melua-bg border border-melua-border text-melua-ink" />
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-3">
+                    <div>
+                      <label class="block text-xs font-bold text-melua-ink mb-1">Categoria *</label>
+                      <select id="editProdCategory" class="w-full px-3 py-2 rounded-xl bg-melua-bg border border-melua-border text-melua-ink">
+                        ${['Maquiagem', 'Skincare', 'Acessórios']
+                          .map(function (cat) {
+                            return `<option value="${cat}" ${editingProd && editingProd.category === cat ? 'selected' : ''}>${cat}</option>`;
+                          })
+                          .join('')}
+                      </select>
+                    </div>
+                    <div>
+                      <label class="block text-xs font-bold text-melua-ink mb-1">Preço Atual (R$) *</label>
+                      <input type="number" step="0.01" id="editProdPrice" required value="${editingProd ? editingProd.price : ''}" placeholder="19.90" class="w-full px-3.5 py-2 rounded-xl bg-melua-bg border border-melua-border text-melua-ink" />
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-3 items-center">
+                    <div>
+                      <label class="block text-xs font-bold text-melua-ink mb-1">Preço Antigo (Opcional)</label>
+                      <input type="number" step="0.01" id="editProdOldPrice" value="${editingProd && editingProd.oldPrice ? editingProd.oldPrice : ''}" placeholder="26.90" class="w-full px-3.5 py-2 rounded-xl bg-melua-bg border border-melua-border text-melua-ink" />
+                    </div>
+                    <div class="flex items-center gap-2 pt-5">
+                      <input type="checkbox" id="editProdPromo" ${editingProd && editingProd.promo ? 'checked' : ''} class="w-4 h-4 accent-melua-plum" />
+                      <label for="editProdPromo" class="text-xs font-bold text-melua-ink">Em Promoção ♡</label>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="block text-xs font-bold text-melua-ink mb-1">Variantes / Cores / Sabores (vírgula)</label>
+                    <input type="text" id="editProdVariants" value="${editingProd ? editingProd.variants.join(', ') : 'Padrão'}" class="w-full px-3.5 py-2 rounded-xl bg-melua-bg border border-melua-border text-melua-ink" />
+                  </div>
+
+                  <div>
+                    <label class="block text-xs font-bold text-melua-ink mb-1">Descrição</label>
+                    <textarea id="editProdDesc" rows="2" placeholder="Descrição breve do produto..." class="w-full px-3.5 py-2 rounded-xl bg-melua-bg border border-melua-border text-melua-ink">${editingProd ? editingProd.description : ''}</textarea>
+                  </div>
+
+                  <div class="p-3.5 rounded-2xl bg-melua-bg border border-melua-border space-y-2">
+                    <label class="block text-xs font-bold text-melua-ink">📸 Foto do Produto (Salva na Nuvem)</label>
+                    <input type="file" data-action="upload-product-photo" accept="image/*" class="block w-full text-xs text-melua-body file:mr-3 file:py-1.5 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-melua-plum file:text-white" />
+                    ${
+                      state.isUploadingImage
+                        ? `<p class="text-xs font-bold text-melua-plum">⏳ Enviando foto para a nuvem, aguarde...</p>`
+                        : previewImg
+                        ? `<div class="flex items-center gap-3 pt-2">
+                            <img src="${previewImg}" alt="Prévia" class="w-14 h-14 rounded-xl object-cover border border-melua-gold" />
+                            <button type="button" data-action="remove-uploaded-photo" class="text-xs text-rose-700 font-bold underline">
+                              Restaurar arte padrão
+                            </button>
+                          </div>`
+                        : `<p class="text-[11px] text-melua-body">Usando ilustração de estúdio padrão com pódio vinho-ameixa.</p>`
+                    }
+                  </div>
+
+                  <button
+                    type="submit"
+                    ${state.isUploadingImage ? 'disabled' : ''}
+                    class="w-full py-3 rounded-full bg-melua-plum hover:bg-melua-plumMid disabled:opacity-50 text-white font-bold text-xs sm:text-sm"
+                  >
+                    ${state.isUploadingImage ? 'Enviando foto...' : editingProd ? 'Salvar Alterações' : '+ Adicionar Produto'}
+                  </button>
+                </form>
+              </div>
+
+              <div class="lg:col-span-7 space-y-3">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div>
+                    <h3 class="font-editorial text-2xl font-bold text-melua-ink">
+                      Catálogo (${state.products.length} itens • ${totalCatalogPages} ${totalCatalogPages === 1 ? 'página' : 'páginas'})
+                    </h3>
+                    <p class="text-[11px] text-melua-body">Paginação automática de ${PAGE_SIZE} produtos por página na vitrine.</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <button type="button" data-action="cancel-edit-product" class="px-3.5 py-1.5 rounded-full bg-melua-plum text-white text-xs font-bold">
+                      + Novo Item
+                    </button>
+                    <button type="button" data-action="restore-default-catalog" class="text-xs font-bold text-melua-plum underline">
+                      Restaurar 11 originais
+                    </button>
+                  </div>
+                </div>
+
+                ${state.products
+                  .map(function (p, index) {
+                    const prodPage = Math.floor(index / PAGE_SIZE) + 1;
+                    return `
+                      <div class="bg-white rounded-2xl p-3.5 border border-melua-border flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-3 min-w-0">
+                          <div class="w-12 h-12 rounded-xl overflow-hidden bg-melua-blushSoft shrink-0">
+                            ${
+                              p.customImage
+                                ? `<img src="${p.customImage}" alt="${p.name}" class="w-full h-full object-cover" />`
+                                : getProductStudioSVG(p.artType, p.variants[0], 'adm-' + p.id)
+                            }
+                          </div>
+                          <div class="min-w-0">
+                            <div class="flex items-center gap-1.5">
+                              <h4 class="font-bold text-sm text-melua-ink truncate">${p.name}</h4>
+                              <span class="px-2 py-0.5 rounded-full bg-melua-bg border border-melua-border text-[10px] font-bold text-melua-plum shrink-0">Pág. ${prodPage}</span>
+                            </div>
+                            <p class="text-xs text-melua-body">${p.category} • ${formatBRL(p.price)} ${p.promo ? '• Oferta ♡' : ''}</p>
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                          <button type="button" data-action="quick-edit-product" data-id="${p.id}" class="px-3 py-1.5 rounded-full bg-melua-blushSoft text-melua-ink text-xs font-bold border border-melua-border">
+                            ✏️ Editar
+                          </button>
+                          <button type="button" data-action="delete-product" data-id="${p.id}" class="p-2 rounded-full bg-rose-50 text-rose-700 text-xs font-bold" title="Excluir">
+                            🗑️
+                          </button>
+                        </div>
+                      </div>
+                    `;
+                  })
+                  .join('')}
+              </div>
+            </div>
+          `;
+          return;
+        }
+
+        if (state.activeAdminTab === 'whatsapp') {
+          container.innerHTML = `
+            <div class="max-w-lg mx-auto bg-white rounded-3xl p-6 sm:p-7 border border-melua-border shadow-card space-y-5">
+              <div>
+                <h3 class="font-editorial text-2xl font-bold text-melua-ink">WhatsApp &amp; Configurações da Loja</h3>
+                <p class="text-xs text-melua-body mt-1">
+                  Todos os pedidos finalizados na sacola e botões de atendimento são direcionados para este WhatsApp.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-melua-bg border border-melua-border text-xs text-melua-body space-y-1">
+                <p class="font-bold text-melua-ink">Configuração ativa da loja:</p>
+                <p>• ✨ Catálogo 100% Pronta Entrega</p>
+                <p>• 🛵 Suporte Uber Moto / 99 Moto Entrega (cotado na hora pelo app)</p>
+                <p>• 🛍️ Retirada / Combinar pelo WhatsApp</p>
+              </div>
+
+              <form data-action="submit-whatsapp-form" class="space-y-4">
+                <div>
+                  <label for="adminWhatsappInput" class="block text-xs font-bold text-melua-ink mb-1">
+                    WhatsApp Oficial (DDI + DDD + Número)
+                  </label>
+                  <input
+                    type="text"
+                    id="adminWhatsappInput"
+                    required
+                    value="${state.whatsappNumber}"
+                    placeholder="5511965966235"
+                    class="w-full px-4 py-2.5 rounded-xl bg-melua-bg border border-melua-border text-sm text-melua-ink"
+                  />
+                  <p class="text-[11px] text-melua-body mt-1">Atual: ${formatPhoneDisplay(state.whatsappNumber)}</p>
+                </div>
+
+                <button type="submit" class="w-full py-3 rounded-full bg-melua-plum hover:bg-melua-plumMid text-white text-xs sm:text-sm font-bold">
+                  Salvar Configurações
+                </button>
+              </form>
+            </div>
+          `;
+          return;
+        }
+
+        if (state.activeAdminTab === 'senha') {
+          container.innerHTML = `
+            <div class="max-w-md mx-auto bg-white rounded-3xl p-6 sm:p-7 border border-melua-border shadow-card">
+              <h3 class="font-editorial text-2xl font-bold text-melua-ink">Alterar Senha da Lojista</h3>
+              <p class="text-xs text-melua-body mt-1">Defina uma nova senha de acesso restrito para o painel da Melua Cosméticos.</p>
+
+              <form data-action="submit-password-form" class="mt-5 space-y-4">
+                <div>
+                  <label class="block text-xs font-bold text-melua-ink mb-1">Nova Senha (mínimo 4 caracteres)</label>
+                  <input type="password" id="newAdminPasswordInput" required minlength="4" class="w-full px-4 py-2.5 rounded-xl bg-melua-bg border border-melua-border text-sm text-melua-ink" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-melua-ink mb-1">Confirmar Nova Senha</label>
+                  <input type="password" id="confirmAdminPasswordInput" required minlength="4" class="w-full px-4 py-2.5 rounded-xl bg-melua-bg border border-melua-border text-sm text-melua-ink" />
+                </div>
+                <button type="submit" class="w-full py-3 rounded-full bg-melua-plum hover:bg-melua-plumMid text-white text-xs sm:text-sm font-bold">
+                  Salvar Nova Senha
+                </button>
+              </form>
+            </div>
+          `;
+        }
+      }
+
+      // =========================================================================
+      // 11. CONTROLE DE DRAWER E MODAIS
+      // =========================================================================
+      function openCartDrawer() {
+        const el = document.getElementById('cartDrawerBackdrop');
+        if (el) el.classList.remove('hidden');
+      }
+
+      function closeCartDrawer() {
+        const el = document.getElementById('cartDrawerBackdrop');
+        if (el) el.classList.add('hidden');
+      }
+
+      function closeReceiptModal() {
+        const el = document.getElementById('receiptModal');
+        if (el) {
+          el.classList.add('hidden');
+          el.classList.remove('flex');
+        }
+      }
+
+      function openAboutModal() {
+        const el = document.getElementById('aboutModal');
+        if (el) {
+          el.classList.remove('hidden');
+          el.classList.add('flex');
+        }
+      }
+
+      function closeAboutModal() {
+        const el = document.getElementById('aboutModal');
+        if (el) {
+          el.classList.add('hidden');
+          el.classList.remove('flex');
+        }
+      }
+
+      // =========================================================================
+      // 12. EVENT DELEGATION GLOBAL
+      // =========================================================================
+      document.addEventListener(
+        'error',
+        function (e) {
+          const target = e.target;
+          if (target && target.tagName === 'IMG' && target.dataset.fallback === 'logo') {
+            target.style.display = 'none';
+            if (target.nextElementSibling) {
+              target.nextElementSibling.style.display = 'flex';
+            }
+          }
+        },
+        true
+      );
+
+      document.addEventListener('click', async function (e) {
+        if (e.target.id === 'cartDrawerBackdrop') {
+          closeCartDrawer();
+          return;
+        }
+        if (e.target.id === 'receiptModal') {
+          closeReceiptModal();
+          return;
+        }
+        if (e.target.id === 'aboutModal') {
+          closeAboutModal();
+          return;
+        }
+        if (e.target.id === 'adminLoginModal') {
+          closeAdminLogin();
+          return;
+        }
+
+        const actionTarget = e.target.closest('[data-action]');
+        if (!actionTarget) return;
+
+        const action = actionTarget.dataset.action;
+
+        switch (action) {
+          case 'focus-search': {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+              searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              window.setTimeout(function () {
+                searchInput.focus();
+              }, 200);
+            }
+            break;
+          }
+
+          case 'filter-category': {
+            state.selectedFilter = actionTarget.dataset.filter || 'Todos';
+            state.currentPage = 1;
+            renderCategoryFilters();
+            renderProductGrid();
+            break;
+          }
+
+          case 'filter-promotions': {
+            state.selectedFilter = 'Promoções';
+            state.currentPage = 1;
+            renderCategoryFilters();
+            renderProductGrid();
+            const prodSection = document.getElementById('produtos');
+            if (prodSection) prodSection.scrollIntoView({ behavior: 'smooth' });
+            showToast('Exibindo promoções especiais da Melua!');
+            break;
+          }
+
+          case 'reset-filters': {
+            state.selectedFilter = 'Todos';
+            state.searchQuery = '';
+            state.currentPage = 1;
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) searchInput.value = '';
+            renderCategoryFilters();
+            renderProductGrid();
+            break;
+          }
+
+          case 'go-to-page': {
+            const page = Number(actionTarget.dataset.page);
+            if (!isNaN(page) && page >= 1) {
+              state.currentPage = page;
+              renderProductGrid();
+              const prodSection = document.getElementById('produtos');
+              if (prodSection) prodSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            break;
+          }
+
+          case 'select-variant': {
+            const prodId = actionTarget.dataset.id;
+            const variant = actionTarget.dataset.variant;
+            if (prodId && variant) {
+              state.selectedVariants[prodId] = variant;
+              renderProductGrid();
+            }
+            break;
+          }
+
+          case 'add-to-cart':
+            addToCart(actionTarget.dataset.id);
+            break;
+
+          case 'open-cart':
+            openCartDrawer();
+            break;
+
+          case 'close-cart':
+            closeCartDrawer();
+            break;
+
+          case 'cart-qty':
+            updateCartQty(actionTarget.dataset.key, Number(actionTarget.dataset.delta));
+            break;
+
+          case 'cart-remove':
+            removeCartItem(actionTarget.dataset.key);
+            break;
+
+          case 'finalize-whatsapp-order':
+            await finalizeWhatsAppOrder();
+            break;
+
+          case 'close-receipt':
+            closeReceiptModal();
+            break;
+
+          case 'copy-receipt-text':
+            copyTextToClipboard(state.lastReceiptText);
+            break;
+
+          case 'open-about-modal':
+            openAboutModal();
+            break;
+
+          case 'close-about-modal':
+            closeAboutModal();
+            break;
+
+          case 'trigger-admin-login':
+            triggerAdminAccess();
+            break;
+
+          case 'close-admin-login':
+            closeAdminLogin();
+            break;
+
+          case 'toggle-password-visibility': {
+            const pwInput = document.getElementById('adminPasswordInput');
+            if (pwInput) {
+              pwInput.type = pwInput.type === 'password' ? 'text' : 'password';
+            }
+            break;
+          }
+
+          case 'open-admin-panel':
+            openAdminPanel();
+            break;
+
+          case 'close-admin-panel':
+            closeAdminPanel();
+            break;
+
+          case 'logout-admin':
+            logoutAdmin();
+            break;
+
+          case 'admin-bar-tab': {
+            const tab = actionTarget.dataset.tab;
+            if (tab === 'vitrine') {
+              state.activeAdminTab = 'vitrine';
+              closeAdminPanel();
+              renderAdminTabContent();
+            } else if (tab) {
+              state.activeAdminTab = tab;
+              openAdminPanel();
+            }
+            break;
+          }
+
+          case 'switch-admin-tab': {
+            const tab = actionTarget.dataset.tab;
+            if (tab === 'vitrine') {
+              state.activeAdminTab = 'vitrine';
+              closeAdminPanel();
+              renderAdminTabContent();
+              showToast('Modo vitrine ativo! Clique em Editar nos produtos ou na capa.');
+            } else if (tab) {
+              state.activeAdminTab = tab;
+              renderAdminTabContent();
+            }
+            break;
+          }
+
+          case 'quick-edit-hero-photo': {
+            state.activeAdminTab = 'produtos';
+            openAdminPanel();
+            window.setTimeout(function () {
+              const sec = document.getElementById('adminHeroPhotoSection');
+              if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+            break;
+          }
+
+          case 'restore-default-hero-photo': {
+            state.heroCardImage = '';
+            const savedCloud = await saveGlobalStoreToCloud(false);
+            renderHeroCardMedia();
+            renderAdminTabContent();
+            showToast(
+              savedCloud
+                ? 'Ilustração padrão restaurada na nuvem!'
+                : 'Ilustração padrão restaurada!'
+            );
+            break;
+          }
+
+          case 'view-product-page-in-store': {
+            const targetPage = Number(actionTarget.dataset.page) || 1;
+            state.selectedFilter = 'Todos';
+            state.searchQuery = '';
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) searchInput.value = '';
+            state.currentPage = targetPage;
+            closeAdminPanel();
+            renderCategoryFilters();
+            renderProductGrid();
+            const prodSection = document.getElementById('produtos');
+            if (prodSection) prodSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            break;
+          }
+
+          case 'quick-edit-product': {
+            state.editingProductId = actionTarget.dataset.id || null;
+            state.pendingUploadedImage = '';
+            state.activeAdminTab = 'produtos';
+            openAdminPanel();
+            window.setTimeout(function () {
+              const card = document.getElementById('adminProductFormCard');
+              if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+            break;
+          }
+
+          case 'cancel-edit-product': {
+            state.editingProductId = null;
+            state.pendingUploadedImage = '';
+            renderAdminTabContent();
+            window.setTimeout(function () {
+              const card = document.getElementById('adminProductFormCard');
+              if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 80);
+            break;
+          }
+
+          case 'remove-uploaded-photo': {
+            state.pendingUploadedImage = '';
+            if (state.editingProductId) {
+              const prod = state.products.find(function (p) {
+                return p.id === state.editingProductId;
+              });
+              if (prod) {
+                prod.customImage = '';
+                await saveGlobalStoreToCloud(false);
+                renderProductGrid();
+              }
+            }
+            renderAdminTabContent();
+            showToast('Arte de estúdio padrão restaurada!');
+            break;
+          }
+
+          case 'delete-product': {
+            const delId = actionTarget.dataset.id;
+            state.products = state.products.filter(function (p) {
+              return p.id !== delId;
+            });
+            const savedCloud = await saveGlobalStoreToCloud(false);
+            renderProductGrid();
+            renderAdminTabContent();
+            showToast(
+              savedCloud
+                ? 'Produto removido globalmente do site.'
+                : 'Produto removido da vitrine.'
+            );
+            break;
+          }
+
+          case 'restore-default-catalog': {
+            state.products = cloneDefaultProducts();
+            state.currentPage = 1;
+            state.lastAddedProductPage = null;
+            const savedCloud = await saveGlobalStoreToCloud(false);
+            syncSelectedVariants();
+            renderCategoryFilters();
+            renderProductGrid();
+            renderAdminTabContent();
+            showToast(
+              savedCloud
+                ? 'Os 11 produtos originais foram restaurados na nuvem!'
+                : 'Os 11 produtos originais foram restaurados!'
+            );
+            break;
+          }
+        }
+      });
+
+      document.addEventListener('input', function (e) {
+        if (e.target && e.target.dataset.action === 'search-products') {
+          state.searchQuery = e.target.value;
+          state.currentPage = 1;
+          renderProductGrid();
+        }
+      });
+
+      document.addEventListener('change', async function (e) {
+        const target = e.target;
+        if (!target) return;
+
+        if (target.name === 'deliveryMethod') {
+          toggleDeliveryAddressInput();
+          return;
+        }
+
+        if (target.dataset.action === 'upload-hero-photo' && target.files && target.files[0]) {
+          showToast('⏳ Enviando foto da capa para a nuvem...');
+          processAndUploadImage(target.files[0], 'capa', async function (imageUrl) {
+            state.heroCardImage = imageUrl;
+            const savedCloud = await saveGlobalStoreToCloud(false);
+            renderHeroCardMedia();
+            renderAdminTabContent();
+            showToast(
+              savedCloud
+                ? '☁️ Foto da capa salva globalmente para todos os clientes!'
+                : 'Foto aplicada localmente.'
+            );
+          });
+          return;
+        }
+
+        if (target.dataset.action === 'upload-product-photo' && target.files && target.files[0]) {
+          state.isUploadingImage = true;
+          renderAdminTabContent();
+          processAndUploadImage(target.files[0], 'produtos', function (imageUrl) {
+            state.isUploadingImage = false;
+            state.pendingUploadedImage = imageUrl;
+            renderAdminTabContent();
+            showToast('☁️ Foto pronta! Clique em Salvar Alterações / Adicionar Produto.');
+          });
+          return;
+        }
+
+        if (target.dataset.action === 'change-order-status') {
+          const orderId = target.dataset.id;
+          const order = state.orders.find(function (o) {
+            return o.id === orderId;
+          });
+          if (order) {
+            order.status = target.value;
+            await saveGlobalStoreToCloud(true);
+            showToast('Pedido #' + order.id + ' marcado como "' + order.status + '".');
+          }
+        }
+      });
+
+      document.addEventListener('submit', async function (e) {
+        const form = e.target;
+        if (!form || !form.dataset.action) return;
+        e.preventDefault();
+
+        const action = form.dataset.action;
+
+        if (action === 'submit-admin-login') {
+          submitAdminLogin();
+          return;
+        }
+
+        if (action === 'submit-product-form') {
+          if (state.isUploadingImage) {
+            showToast('Aguarde a foto terminar de enviar...');
+            return;
+          }
+
+          const id = document.getElementById('editProdId')?.value;
+          const name = document.getElementById('editProdName')?.value.trim();
+          const category = document.getElementById('editProdCategory')?.value || 'Maquiagem';
+          const price = parseFloat(document.getElementById('editProdPrice')?.value);
+          const oldPriceRaw = document.getElementById('editProdOldPrice')?.value;
+          const oldPrice = oldPriceRaw ? parseFloat(oldPriceRaw) : null;
+          const promo = Boolean(document.getElementById('editProdPromo')?.checked);
+          const variantsRaw = document.getElementById('editProdVariants')?.value || 'Padrão';
+          const variants = variantsRaw
+            .split(',')
+            .map(function (v) {
+              return v.trim();
+            })
+            .filter(Boolean);
+          const description = document.getElementById('editProdDesc')?.value.trim();
+
+          if (!name || isNaN(price)) {
+            showToast('Preencha nome e preço válidos.');
+            return;
+          }
+
+          if (id) {
+            const idx = state.products.findIndex(function (p) {
+              return p.id === id;
+            });
+            if (idx !== -1) {
+              const prev = state.products[idx];
+              state.products[idx] = {
+                id: prev.id,
+                name: name,
+                category: category,
+                price: price,
+                oldPrice: oldPrice,
+                promo: promo,
+                variants: variants.length ? variants : ['Padrão'],
+                description: description || prev.description,
+                artType: prev.artType,
+                customImage: state.pendingUploadedImage || prev.customImage
+              };
+            }
+            state.lastAddedProductPage = null;
+          } else {
+            state.products.push({
+              id: 'prod-' + Date.now(),
+              name: name,
+              category: category,
+              price: price,
+              oldPrice: oldPrice,
+              promo: promo,
+              variants: variants.length ? variants : ['Padrão'],
+              description: description || 'Produto à pronta entrega Melua Cosméticos.',
+              artType: 'brush-duo',
+              customImage: state.pendingUploadedImage
+            });
+            state.lastAddedProductPage = Math.max(1, Math.ceil(state.products.length / PAGE_SIZE));
+          }
+
+          state.editingProductId = null;
+          state.pendingUploadedImage = '';
+          const savedCloud = await saveGlobalStoreToCloud(false);
+          syncSelectedVariants();
+          renderCategoryFilters();
+          renderProductGrid();
+          renderAdminTabContent();
+          showToast(
+            savedCloud
+              ? '☁️ Produto e foto salvos na nuvem para todos os dispositivos!'
+              : 'Produto salvo localmente.'
+          );
+          return;
+        }
+
+        if (action === 'submit-whatsapp-form') {
+          const rawVal = document.getElementById('adminWhatsappInput')?.value || '';
+          const cleanDigits = rawVal.replace(/\D/g, '');
+          if (cleanDigits.length < 10) {
+            showToast('Informe um número de WhatsApp válido com DDI e DDD.');
+            return;
+          }
+          state.whatsappNumber = cleanDigits;
+          const savedCloud = await saveGlobalStoreToCloud(false);
+          syncWhatsAppLinks();
+          renderAdminTabContent();
+          showToast(
+            savedCloud
+              ? '☁️ WhatsApp atualizado globalmente na nuvem!'
+              : 'Configurações atualizadas!'
+          );
+          return;
+        }
+
+        if (action === 'submit-password-form') {
+          const newPw = document.getElementById('newAdminPasswordInput')?.value.trim();
+          const confirmPw = document.getElementById('confirmAdminPasswordInput')?.value.trim();
+          if (!newPw || newPw.length < 4) {
+            showToast('A senha deve ter pelo menos 4 caracteres.');
+            return;
+          }
+          if (newPw !== confirmPw) {
+            showToast('As senhas digitadas não coincidem.');
+            return;
+          }
+          safeStorage.set(STORAGE_KEYS.PASSWORD, newPw);
+          const savedCloud = await saveGlobalStoreToCloud(false);
+          showToast(
+            savedCloud
+              ? '☁️ Senha alterada e sincronizada na nuvem!'
+              : 'Senha da Área da Lojista alterada com sucesso!'
+          );
+          form.reset();
+        }
+      });
+
+      // =========================================================================
+      // 13. INICIALIZAÇÃO IMEDIATA DA VITRINE + SINCRONIZAÇÃO COM A NUVEM
+      // =========================================================================
+      function initApp() {
+        try {
+          syncWhatsAppLinks();
+          renderHeroCardMedia();
+          renderCategoryFilters();
+          renderProductGrid();
+          renderCart();
+          toggleDeliveryAddressInput();
+          updateCloudStatusBadges();
+
+          loadGlobalStoreFromCloud();
+
+          if (window.location.hash === '#admin') {
+            triggerAdminAccess();
+          }
+        } catch (err) {
+          console.error('Erro na inicialização da Melua Cosméticos:', err);
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initApp);
+      } else {
+        initApp();
+      }
+    })();
+  </script>
+</body>
+</html>
